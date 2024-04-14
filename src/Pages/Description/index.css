@@ -1,0 +1,52 @@
+.custom-shadow-desc {
+  /* background: linear-gradient(125.93deg, #000099 14.79%, #004EA8 93.8%),
+    linear-gradient(0deg, #FFFFFF, #FFFFFF); */
+  border-bottom: 7px solid;
+  border-color: #004ea8;
+  /* border-color: linear-gradient(125.93deg, #000099 14.79%, #004EA8 93.8%); */
+  box-shadow: 0px 4px 10px 0px #0000001a;
+  border: Mixed solid;
+  margin-bottom: 1rem;
+}
+
+.custom-shadow-btn1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  gap: 10px;
+  color: #000099;
+  border: 1px solid #000099;
+}
+
+.custom-shadow-btn2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(125.93deg, #000099 14.79%, #004ea8 93.8%);
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  gap: 10px;
+}
+
+.custom-box-3 {
+  border: 1px solid #888888;
+  border-radius: 10px;
+}
+.square-image {
+  position: relative;
+  overflow: hidden;
+  width: 60%;
+  padding-top: 80%; /* 1:1 aspect ratio */
+}
+
+.square-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

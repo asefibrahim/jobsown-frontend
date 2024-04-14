@@ -1,0 +1,9 @@
+.custom-border-balance{
+    box-shadow: 0px 4px 10px 0px #0000001A;
+    border: 1px solid #000099;
+    border-radius : 10px;
+}
+
+.custom-border-bottom-balance{
+    border-bottom: 0.25px solid #888888
+}

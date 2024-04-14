@@ -1,0 +1,15 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns per row */
+    gap: 16px; /* Adjust the gap between items as needed */
+    width:80%;
+
+  }
+  
+  .grid-item {
+    /* Add any additional styling for your grid items */
+  }
+
+  .heightprop{
+    height: 97% !important;
+  }

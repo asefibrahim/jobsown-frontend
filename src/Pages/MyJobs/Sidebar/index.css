@@ -1,0 +1,15 @@
+.custom-bg-sidebar{
+    box-shadow: 4px 0px 14px 0px #0000001A;
+
+}
+
+#sideActive {
+    background: linear-gradient(96.97deg, #0095DD -19.14%, #004EA8 107.82%);
+    width:5%;
+    margin-right: 1rem;
+  }
+
+  #sideInactive {
+    width:5%;
+    margin-right: 1rem;
+  }

@@ -1,0 +1,192 @@
+.JobspecialtyBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.JobspecialtyCol1 {
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+  width: 38%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.JobspecialtyCol2 {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 2%;
+}
+
+.jobRow {
+  display: flex;
+  width: 90%;
+  justify-content: space-evenly;
+}
+
+.Col1Content1 {
+  font-family: Red Hat Display;
+  padding: 0.5rem;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 135%;
+  /* 54px */
+  width: 80%;
+  background: linear-gradient(270deg, #009 0.58%, #004ea8 99.76%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Col1Content2 {
+  color: var(--black-50, #888);
+  font-family: Red Hat Display;
+  font-size: 24px;
+  padding: 0.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 128%;
+  /* 30.72px */
+  width: 80%;
+}
+
+.Col1Content3 {
+  background: linear-gradient(90deg, #009 0.15%, #004ea8 99.91%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Red Hat Display;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 135%;
+  width: 80%;
+  padding: 0.5rem;
+  /* 32.4px */
+}
+
+.JobspecialtyBox1 {
+  display: flex;
+  width: 100%;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 135%;
+  color: rgb(8, 6, 6);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem;
+  gap: 1%;
+}
+.jobIconCon {
+  width: 10%;
+}
+.jobIcon {
+  width: 100%;
+}
+.jobType {
+  padding: 1rem;
+  font-weight: 800;
+}
+@media (max-width: 1024px) {
+  .Jobspecialty {
+    width: 100vw;
+    height: auto;
+  }
+
+  .JobspecialtyBox {
+    width: 94%;
+    height: 94%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .JobspecialtyCol1 {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .JobspecialtyCol2 {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 2%;
+  }
+
+  .JobspecialtyBox1 {
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135%;
+    color: rgb(8, 6, 6);
+    align-items: center;
+    gap: 1%;
+  }
+  .jobIconCon {
+    width: 30%;
+  }
+  .jobIcon {
+    width: 100%;
+  }
+  .jobType {
+    padding: 0.2rem;
+    font-weight: 500;
+    font-size: 10px;
+  }
+
+  .jobRow {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .Col1Content1 {
+    font-size: 20px;
+    text-align: center;
+    margin: 0.5rem;
+  }
+
+  .Col1Content2 {
+    font-size: 16px;
+    text-align: center;
+    margin: 0.5rem;
+  }
+
+  .Col1Content3 {
+    font-size: 12px;
+    text-align: center;
+    margin: 0.5rem;
+  }
+
+  .JobspecialtyBox1 {
+    font-size: 16px;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .ViewjobsBtn {
+    font-size: 12px;
+    padding: 0.3rem;
+    margin: 0.5rem;
+  }
+}

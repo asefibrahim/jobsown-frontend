@@ -1,0 +1,31 @@
+.Navplate {
+  width: 99vw;
+  height: 8vh;
+  color: #fcfcfc;
+}
+
+.NavBox {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.NavLoginBtn {
+  color: var(--white, #fcfcfc);
+  font-family: Red Hat Display;
+
+  padding: 0.4rem 0.8rem;
+
+  line-height: normal;
+  border-radius: var(--borderRadius, 4px);
+  background: linear-gradient(97deg, #009 -19.14%, #004ea8 107.82%);
+}
+@media (max-width: 1024px) {
+  .Navplate {
+    width: 100vw;
+  }
+}

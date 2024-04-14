@@ -1,0 +1,201 @@
+.FirstPageBox {
+  width: 100%;
+}
+
+.HomePage1 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.TypeOfJop {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.Type1 {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background: linear-gradient(90.4deg, #4f85c3 0%, #4279ba 100%);
+  text-align: center;
+  font-family: Red Hat Display;
+
+  font-style: normal;
+
+  line-height: 135%;
+  color: #f9f9f9;
+}
+.Type3 {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background: linear-gradient(90.4deg, #4f8ace 0%, #437ec7 100%);
+  text-align: center;
+  font-family: Red Hat Display;
+
+  font-style: normal;
+
+  line-height: 135%;
+  color: #f9f9f9;
+}
+.Type2 {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background: #e7f3f6;
+  text-align: center;
+  font-family: Red Hat Display;
+
+  font-style: normal;
+
+  line-height: 135%;
+  /* background-image: linear-gradient(92deg, #000099 12.47%, #004EA8 91.79%); */
+  /* background-clip : text; */
+  /* color: transparent; */
+
+  /* 43.2px */
+}
+
+.HomePageBg {
+  width: 100%;
+  height: 92vh;
+  /* background-image: url("https://images.unsplash.com/photo-1588421357574-87938a86fa28?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
+  background-image: url("https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+
+  background-repeat: no-repeat;
+  background-size: cover; /* Adjust this property to cover, contain, or custom values based on your needs */
+}
+
+.HomepageBg1Img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+}
+
+.sloganContent {
+  width: 100%;
+  height: 20%;
+  padding: 2rem;
+  font-family: Red Hat Display;
+  font-size: 40px;
+  font-style: normal;
+  text-align: center;
+  font-weight: 1000;
+  line-height: 135%;
+  background: #ffffff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.HomePageSearch {
+  margin: 2rem auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--5, 40px);
+  background: #fff;
+}
+
+.HomePageSearchIcon {
+  width: 45%;
+  height: 100%;
+  border: none;
+  border: 0 transparent;
+  border-radius: var(--5, 40px);
+  outline: none;
+  background: #fff;
+  text-align: justify;
+  padding-left: 10%;
+}
+
+.SearchIconBox {
+  width: 6%;
+  height: 80%;
+  border: none;
+  background: none;
+}
+
+.searchBarImg {
+  width: 100%;
+}
+.SearchIcon {
+  color: black;
+}
+
+.ApplyWrapper {
+  display: flex;
+  align-items: center;
+  height: 60%;
+  width: 60%;
+  margin: 3rem auto;
+}
+
+.Apply {
+  width: 35%;
+  padding: 0.8rem;
+  border-radius: 2rem;
+  color: #fff;
+  text-align: justify;
+  font-family: Red Hat Display;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 135%;
+  background-color: #ffffff;
+  /* 27px */
+}
+
+.custom-input1 {
+  /* border : 1px solid black; */
+  box-shadow: 0px 1px 2px 0px #0000004d;
+}
+
+.custom-border-firstpage {
+  border: 1px solid #e7e7e7;
+}
+@media (max-width: 1024px) {
+  .HomePageBg {
+    height: 30vh;
+  }
+  .FirstPageBox {
+    width: 100vw;
+  }
+  .sloganContent {
+    text-align: center;
+    width: 100%;
+    padding: 2rem;
+    font-size: 30px;
+  }
+  .Type1,
+  .Type2 {
+    font-size: 20px;
+  }
+
+  .Apply {
+    width: 100%;
+    /* margin: 16rem 5rem; */
+    margin: 3rem;
+    color: #fff;
+    text-align: justify;
+    font-family: Red Hat Display;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%;
+    /* 27px */
+  }
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "authors_name": "Aman",
+    "dates": null,
+    "description": "Jobs in Dubai focusing on technology sectors.",
+    "id": 1,
+    "tags": "technology",
+    "content": "Explore exciting technology opportunities in Dubai."
+  },
+  {
+    "authors_name": "Jagdeep",
+    "dates": null,
+    "description": "Nursing positions available in Berlin hospitals.",
+    "id": 2,
+    "tags": "healthcare",
+    "content": "Join the healthcare team in Berlin's top hospitals."
+  },
+  {
+    "authors_name": "Gaurav",
+    "dates": null,
+    "description": "Teaching opportunities in primary schools in New York.",
+    "id": 3,
+    "tags": "education",
+    "content": "Shape the future with teaching roles in New York."
+  },
+  {
+    "authors_name": "Piyush",
+    "dates": null,
+    "description": "Entry-level finance analyst roles in London.",
+    "id": 4,
+    "tags": "finance",
+    "content": "Kickstart your finance career in London."
+  },
+  {
+    "authors_name": "Modi",
+    "dates": null,
+    "description": "Hotel management roles in Paris for English speakers.",
+    "id": 5,
+    "tags": "hospitality",
+    "content": "Manage prestigious hotels in Paris."
+  },
+  {
+    "authors_name": "amitshah",
+    "dates": null,
+    "description": "Civil engineering projects needing managers in Tokyo.",
+    "id": 6,
+    "tags": "engineering",
+    "content": "Lead civil engineering projects in Tokyo."
+  },
+  {
+    "authors_name": "indian jones",
+    "dates": null,
+    "description": "Software development roles in Silicon Valley for experienced coders.",
+    "id": 7,
+    "tags": "IT",
+    "content": "Advance your coding career in Silicon Valley."
+  },
+  {
+    "authors_name": "jaishree",
+    "dates": null,
+    "description": "Store manager positions in Milan for luxury brands.",
+    "id": 8,
+    "tags": "retail",
+    "content": "Manage luxury retail stores in Milan."
+  },
+  {
+    "authors_name": "jaikishan",
+    "dates": null,
+    "description": "Digital marketing strategist roles in Sydney.",
+    "id": 9,
+    "tags": "marketing",
+    "content": "Strategize in the digital marketing world in Sydney."
+  },
+  {
+    "authors_name": "agrawalsweets",
+    "dates": null,
+    "description": "Research positions in biotech firms in Boston.",
+    "id": 10,
+    "tags": "science",
+    "content": "Pioneer research in Boston's biotech sector."
+  }
+]

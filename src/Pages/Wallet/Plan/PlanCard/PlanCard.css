@@ -1,0 +1,8 @@
+.custom-bg-plan{
+    box-shadow: 0px 4px 10px 0px #0000001A;
+}
+.custom-bg-plan-btn{
+    background: linear-gradient(125.93deg, #000099 14.79%, #004EA8 93.8%);
+    color: white;
+    border-radius: 6px;
+}

@@ -1,0 +1,153 @@
+.HomeContactUs {
+  width: 99vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.HomeContactUsBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  row-gap: 20px;
+  margin: auto;
+}
+
+.HomeContactUsCol1 {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.HomeContactUsForm {
+  width: 100%;
+  height: 100%;
+
+  background: #f5f5f5;
+  background-image: url("../Images/verify.png");
+  background-repeat: no-repeat;
+}
+
+.formContent {
+  width: 100%;
+
+  color: var(--components-chip-defaultCloseFill, #3d3d3d);
+  text-align: center;
+
+  font-style: normal;
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.formContent p {
+  background: linear-gradient(97deg, #009 27.17%, #004ea8 79.36%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Red Hat Display;
+
+  font-style: normal;
+  font-weight: 700;
+
+  display: inline;
+}
+
+.insideText {
+  font-family: "Red Hat Display", sans-serif;
+}
+
+.contactUsHeading {
+  font-weight: 600;
+}
+
+.formdiv {
+  width: 100%;
+  height: 65%;
+}
+
+.formbox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.formcss {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  flex-direction: column;
+}
+
+.inputbox {
+  width: 100%;
+  height: 15%;
+}
+
+.formbutton {
+  border-radius: var(--borderRadius, 4px);
+  background: linear-gradient(97deg, #009 -19.14%, #004ea8 107.82%);
+  width: 100%;
+  height: 15%;
+  margin-top: 4%;
+}
+
+.HomeContactUsCol2 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.LineHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  padding: 0.5rem;
+  font-size: 18px;
+}
+
+.HomeContactUsRow1 {
+  width: 100%;
+  height: 30%;
+}
+
+.contactUsInfo {
+  font-size: 18px;
+  padding: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .HomeContactUs {
+    /* width: 100vw; */
+  }
+
+  .HomeContactUsCol1 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .HomeContactUsCol2 {
+    display: none;
+  }
+
+  .HomeContactUsForm {
+    width: 100%;
+  }
+}
