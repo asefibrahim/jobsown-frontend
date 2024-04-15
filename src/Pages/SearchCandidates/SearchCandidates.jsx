@@ -11,6 +11,10 @@ import Experience from "./Experience";
 import Industries from "./Industries";
 import "./SearchCandidates.css";
 import Sidebar from "./Sidebar";
+import Education from "./Education";
+import Gender from "./Gender";
+import Age from "./Age";
+import Language from "./Language";
 
 const SearchCandidates = () => {
   // get search params data from url
@@ -48,6 +52,23 @@ const SearchCandidates = () => {
   // sort by industries 
   const [searchIndustries, setSearchIndustries] = useState("");
 
+  // sort by annual salary
+  const [searchMinSarlary, setAnnualMinSarlary] = useState(minSalary);
+  const [searchMaxSarlary, setAnnualMaxSarlary] = useState(maxSalary);
+
+  // sort by education
+  const [searchEducation, setSearchEducation] = useState(education);
+
+  // sort by gender
+  const [gender, setGender] = useState(null);
+
+  // sort by age
+  const [minAge, setMinAge] = useState(null);
+  const [maxAge, setMaxAge] = useState(null);
+
+  // sort by language
+  const [searchLanguage, setSearchLanguage] = useState("");
+
   console.log("check from parent does it got it city or loc", cityOrLocation);
 
   const handleChange = (key, value) => {
@@ -75,11 +96,15 @@ const SearchCandidates = () => {
         currentCity: cityOrLocation,
         minExperience: searchMinExperience,
         maxExperience: searchMaxExperience,
-        minSalary: minSalary,
-        maxSalary: maxSalary,
-        education: education,
+        minSalary: searchMinSarlary,
+        maxSalary: searchMaxSarlary,
+        education: searchEducation,
         cvLink: haveCv,
         searchIndustries: searchIndustries,
+        gender: gender,
+        minAge: minAge,
+        maxAge: maxAge,
+        language: searchLanguage,
     }
     })
     .then(res => {
@@ -89,7 +114,7 @@ const SearchCandidates = () => {
     .catch(err => {
       console.log(err);
     })
-  }, [haveCv, cityOrLocation, searchKeyword, searchMinExperience, searchMaxExperience, searchIndustries])
+  }, [haveCv, cityOrLocation, searchKeyword, searchMinExperience, searchMaxExperience, searchIndustries, searchMinSarlary, searchMaxSarlary, searchEducation, gender, minAge, maxAge, searchLanguage ])
 
   return (
     <div>
@@ -178,11 +203,30 @@ const SearchCandidates = () => {
               setSearchIndustries={setSearchIndustries}
               setSearchKeyword={setSearchKeyword}
             />
-            <AnnualSalary hireText="Annual Salary" />
-            <DropRecords optionTexts={[]} hireText="Education" />
-            <DropRecords optionTexts={[]} hireText="Gender" />
-            <DropRecords optionTexts={[]} hireText="Age" />
-            <DropRecords optionTexts={[]} hireText="Languages" />
+            <AnnualSalary 
+              hireText="Annual Salary"
+              setAnnualMinSarlary={setAnnualMinSarlary}
+              setAnnualMaxSarlary={setAnnualMaxSarlary}
+             />
+            <Education 
+               optionTexts={["10th Pass", "12th Pass", "Diploma", "ITI", "Graduate", "Post Graduate"]}
+               hireText="Education" 
+               setSearchEducation={setSearchEducation}
+            />
+            <Gender 
+               optionTexts={["Male", "Female"]} 
+               hireText="Gender"
+               setGender={setGender}
+             />
+            <Age 
+               hireText="Age"
+               setMinAge={setMinAge}
+               setMaxAge={setMaxAge}
+             />
+            <Language 
+              hireText="Languages"
+              setSearchLanguage={setSearchLanguage}
+            />
           </div>
         </div>
 

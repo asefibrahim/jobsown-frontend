@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
-const DropRecords = ({ optionTexts, hireText, setHaveCv }) => {
+const Education = ({ optionTexts, hireText, setSearchEducation }) => {
   const [isOptionsVisible, setOptionsVisible] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const toggleOptions = () => {
     setOptionsVisible(!isOptionsVisible);
   };
 
-  const handleChange = (value) => {
-    setSelectedOption(value);
-    setHaveCv(value);
+  const handleChange = (value, index) => {
+    setSelectedOption(`option${index + 1}`);
     // Additional logic if needed
+    setSearchEducation(value);
     console.log("I am checking from edufcation option", value);
   };
 
@@ -30,7 +30,7 @@ const DropRecords = ({ optionTexts, hireText, setHaveCv }) => {
                 type="radio"
                 value={`option${index + 1}`}
                 checked={selectedOption === `option${index + 1}`}
-                onChange={() => handleChange(`option${index + 1}`)}
+                onChange={() => handleChange(option, index)}
                 className="form-radio text-blue-500"
               />
               <span className="ml-2 text-gray-700">{option}</span>
@@ -42,4 +42,4 @@ const DropRecords = ({ optionTexts, hireText, setHaveCv }) => {
   );
 };
 
-export default DropRecords;
+export default Education;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AnnualSalary = ({ hireText }) => {
+const AnnualSalary = ({ hireText, setAnnualMinSarlary, setAnnualMaxSarlary }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isOptionsVisible, setOptionsVisible] = useState(false);
   const [selectedBy1, setSelectedBy1] = useState("Min.Sal..");
@@ -9,8 +9,15 @@ const AnnualSalary = ({ hireText }) => {
     setOptionsVisible(!isOptionsVisible);
   };
 
-  const handleChange = (value) => {
+  const handleMinSalaryChange = (value) => {
     setSelectedOption(value);
+    setSelectedBy1(value)
+    setAnnualMinSarlary(value);
+  };
+  const handleMaxSalaryChange = (value) => {
+    setSelectedOption(value);
+    setSelectedBy2(value);
+    setAnnualMaxSarlary(value);
   };
 
   return (
@@ -25,19 +32,37 @@ const AnnualSalary = ({ hireText }) => {
         <div className="flex justify-between ">
           <select
             value={selectedBy1}
-            onChange={(e) => setSelectedBy1(e.target.value)}
+            onChange={(e) => handleMinSalaryChange(e.target.value)}
             className="m-1 p-1 border border-gray-300 rounded w-full"
           >
             <option value="Min.Sal..">Min. Sal..</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option className="text-black" value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
             <option value="someone_else">Others</option>
           </select>
           <select
             value={selectedBy2}
-            onChange={(e) => setSelectedBy2(e.target.value)}
+            onChange={(e) => handleMaxSalaryChange(e.target.value)}
             className="m-1 p-1 border border-gray-300 rounded w-full"
           >
-            <option value="Max.Sal..">Max. Sal..</option>
-            <option value="someone_else">Others</option>
+            <option value="">Max. Sal..</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option className="text-black" value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            <option value="">Others</option>
           </select>
         </div>
       )}
