@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
-const Industries = ({ hireText }) => {
+const industriesArry = ["Design", "Development", "Engineering"];
+const Industries = ({ hireText, setSearchIndustries, setSearchKeyword }) => {
   const [isOptionsVisible, setOptionsVisible] = useState(false);
   const [selectedBy, setSelectedBy] = useState("Search industries");
   const toggleOptions = () => {
@@ -8,7 +8,10 @@ const Industries = ({ hireText }) => {
   };
 
   const handleChange = (value) => {
-    setSelectedOption(value);
+    setSelectedBy(value);
+    setSearchIndustries(value);
+    setSearchKeyword("");
+
   };
 
   return (
@@ -23,11 +26,16 @@ const Industries = ({ hireText }) => {
         <div>
           <select
             value={selectedBy}
-            onChange={(e) => setSelectedBy(e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
             className="m-1 p-1 border border-gray-300 rounded w-full"
           >
-            <option value="Search industries">Search industries</option>
-            <option value="someone_else">Others</option>
+            <option value="">Search industries</option>
+            {
+              industriesArry?.map(indus => (
+                <option value={indus}>{indus}</option>
+              ))
+            }
+            <option value="">Others</option>
           </select>
         </div>
       )}

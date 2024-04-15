@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from "./Sidebar";
-import "./SearchCandidates.css";
-import DropRecords from "./DropRecords";
+import { HiDownload } from "react-icons/hi";
+import { useLocation } from "react-router-dom";
+import axios from "../../api/axios";
+import AnnualSalary from "./AnnualSalary";
+import CandidateCard from "./CandidateCard";
 import CurrentLocation from "./CurrentLocation";
+import DropRecords from "./DropRecords";
 import ExcludeKeywords from "./ExcludeKeywords";
 import Experience from "./Experience";
 import Industries from "./Industries";
-import AnnualSalary from "./AnnualSalary";
-import { HiDownload } from "react-icons/hi";
-import CandidateCard from "./CandidateCard";
-import axios from "../../api/axios";
-import { useLocation } from "react-router-dom";
+import "./SearchCandidates.css";
+import Sidebar from "./Sidebar";
 
 const SearchCandidates = () => {
+  // get search params data from url
   const urlLocation = useLocation();
   const searchParams = new URLSearchParams(urlLocation.search);
   const keyword = searchParams.get("keyword");
@@ -23,9 +24,6 @@ const SearchCandidates = () => {
   const maxSalary = searchParams.get("max_salary");
   const education = searchParams.get("education");
 
-  
-  console.log("I got all the params ", keyword, currentCity, minExperience, maxExperience, minSalary, maxSalary, education);
-
   const [selectedOption, setSelectedOption] = useState(null);
   const [selectedOption1, setSelectedOption1] = useState(null);
   const [selectedBy1, setSelectedBy1] = useState("me");
@@ -33,6 +31,25 @@ const SearchCandidates = () => {
   const [selectedWeeks, setSelectedWeeks] = useState(2);
   const [entries, setEntries] = useState(25);
   const [candidates, setCandidates] = useState([]);
+
+  // handle cv attached
+  const [haveCv, setHaveCv] = useState(null);
+
+  // handle city/location
+  const [cityOrLocation, setCityOrLocation] = useState(currentCity);
+
+  // handle sorting by keywords
+  const [searchKeyword, setSearchKeyword] = useState(keyword);
+
+  // handle sorting by experience
+  const [searchMinExperience, setSearchMinExperience] = useState(minExperience);
+  const [searchMaxExperience, setSearchMaxExperience] = useState(maxExperience);
+
+  // sort by industries 
+  const [searchIndustries, setSearchIndustries] = useState("");
+
+  console.log("check from parent does it got it city or loc", cityOrLocation);
+
   const handleChange = (key, value) => {
     switch (key) {
       case "option":
@@ -46,18 +63,23 @@ const SearchCandidates = () => {
     }
   };
 
+  // 
+
+
   // get candidates
 
   useEffect(() => {
     axios.get("http://localhost:5000/api/candidates", {
       params: {
-        keyword: keyword,
-        currentCity: currentCity,
-        minExperience: minExperience,
-        maxExperience: maxExperience,
+        keyword: searchKeyword,
+        currentCity: cityOrLocation,
+        minExperience: searchMinExperience,
+        maxExperience: searchMaxExperience,
         minSalary: minSalary,
         maxSalary: maxSalary,
-        education: education
+        education: education,
+        cvLink: haveCv,
+        searchIndustries: searchIndustries,
     }
     })
     .then(res => {
@@ -67,7 +89,7 @@ const SearchCandidates = () => {
     .catch(err => {
       console.log(err);
     })
-  }, [])
+  }, [haveCv, cityOrLocation, searchKeyword, searchMinExperience, searchMaxExperience, searchIndustries])
 
   return (
     <div>
@@ -135,12 +157,27 @@ const SearchCandidates = () => {
             <DropRecords
               optionTexts={["Have CV Attached"]}
               hireText="Show Candidates who"
+              setHaveCv={setHaveCv}
             />
-            <CurrentLocation hireText="Current City/Location" />
+            <CurrentLocation 
+                hireText="Current City/Location"
+                setCityOrLocation={setCityOrLocation}
+             />
 
-            <ExcludeKeywords hireText="Exclude Keywords" />
-            <Experience hireText="Experience" />
-            <Industries hireText="Industries" />
+            <ExcludeKeywords 
+            hireText="Exclude Keywords"
+            setSearchKeyword={setSearchKeyword}
+            />
+            <Experience 
+              hireText="Experience" 
+              setSearchMinExperience={setSearchMinExperience}
+              setSearchMaxExperience={setSearchMaxExperience}
+            />
+            <Industries 
+              hireText="Industries" 
+              setSearchIndustries={setSearchIndustries}
+              setSearchKeyword={setSearchKeyword}
+            />
             <AnnualSalary hireText="Annual Salary" />
             <DropRecords optionTexts={[]} hireText="Education" />
             <DropRecords optionTexts={[]} hireText="Gender" />

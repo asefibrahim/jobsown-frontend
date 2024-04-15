@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 
-const ExcludeKeywords = ({ hireText }) => {
+const ExcludeKeywords = ({ hireText, setSearchKeyword }) => {
   const [isOptionsVisible, setOptionsVisible] = useState(false);
   const [selectedBy, setSelectedBy] = useState("Search current city/area");
   const toggleOptions = () => {
     setOptionsVisible(!isOptionsVisible);
   };
 
-  const handleChange = (value) => {
-    setSelectedOption(value);
+  const handleKeywords = (e) => {
+    e.preventDefault();
+    const keyword = e.target.keyword.value;
+    setSearchKeyword(keyword);
   };
 
   return (
@@ -21,11 +23,15 @@ const ExcludeKeywords = ({ hireText }) => {
       </div>
       {isOptionsVisible && (
         <div>
+          <form onSubmit={handleKeywords}>
           <input
             type="text"
+            name="keyword"
             class="border rounded-md p-1 placeholder-gray-500 text-gray-700 pl-3 w-full"
             placeholder="Keywords"
           />
+          <input className="hidden" type="submit" value="" />
+          </form>
         </div>
       )}
     </div>

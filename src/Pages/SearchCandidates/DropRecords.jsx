@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 
-const DropRecords = ({ optionTexts, hireText }) => {
+const DropRecords = ({ optionTexts, hireText, setHaveCv }) => {
   const [isOptionsVisible, setOptionsVisible] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
-
   const toggleOptions = () => {
     setOptionsVisible(!isOptionsVisible);
   };
 
   const handleChange = (value) => {
     setSelectedOption(value);
+    setHaveCv(value);
     // Additional logic if needed
+    console.log("I am checking from attached cv option", value);
   };
 
   return (
@@ -28,7 +29,7 @@ const DropRecords = ({ optionTexts, hireText }) => {
               <input
                 type="radio"
                 value={`option${index + 1}`}
-                checked={selectedOption === `option${index + 1}`}
+                // checked={selectedOption === `option${index + 1}`}
                 onChange={() => handleChange(`option${index + 1}`)}
                 className="form-radio text-blue-500"
               />

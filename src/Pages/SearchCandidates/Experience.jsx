@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Experience = ({ hireText }) => {
+const Experience = ({ hireText, setSearchMinExperience, setSearchMaxExperience }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isOptionsVisible, setOptionsVisible] = useState(false);
   const [selectedBy1, setSelectedBy1] = useState("Min.Exp");
@@ -9,8 +9,29 @@ const Experience = ({ hireText }) => {
     setOptionsVisible(!isOptionsVisible);
   };
 
-  const handleChange = (value) => {
+  const handleAnyExperience = (value) => {
     setSelectedOption(value);
+    setSearchMinExperience(null)
+    setSearchMaxExperience(null)
+    setSelectedBy1("");
+    setSelectedBy2("");
+  };
+
+  const handleFresherExperience = (value) => {
+    setSelectedOption(value);
+    setSearchMinExperience(0);
+    setSearchMaxExperience(1);
+    setSelectedBy1("");
+    setSelectedBy2("");
+  };
+
+  const handleMinExperience = (value) => {
+    setSelectedBy1(value);
+    setSearchMinExperience(value)
+  };
+  const handleMaxExperience = (value) => {
+    setSelectedBy2(value);
+    setSearchMaxExperience(value)
   };
 
   return (
@@ -27,9 +48,9 @@ const Experience = ({ hireText }) => {
             <div>
               <input
                 type="radio"
-                value="option1"
+                value=""
                 checked={selectedOption === "option1"}
-                onChange={() => handleChange("option1")}
+                onChange={() => handleAnyExperience("option1")}
                 className="form-radio text-blue-500"
               />
               <span className="ml-2 font-semibold text-gray-700 ">Any</span>
@@ -37,9 +58,9 @@ const Experience = ({ hireText }) => {
             <div>
               <input
                 type="radio"
-                value="option2"
+                value={0}
                 checked={selectedOption === "option2"}
-                onChange={() => handleChange("option2")}
+                onChange={() => handleFresherExperience("option2")}
                 className="form-radio text-blue-500"
               />
               <span className="ml-2 font-semibold text-gray-700">
@@ -50,19 +71,39 @@ const Experience = ({ hireText }) => {
           <div className="flex justify-between ">
             <select
               value={selectedBy1}
-              onChange={(e) => setSelectedBy1(e.target.value)}
+              onChange={(e) => handleMinExperience(e.target.value)}
               className="m-1 p-1 border border-gray-300 rounded w-full"
             >
-              <option value="Min.Exp">Min.Exp</option>
-              <option value="someone_else">Others</option>
+              <option value="">Min.Exp</option>
+              <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+              <option value="">Others</option>
             </select>
             <select
               value={selectedBy2}
-              onChange={(e) => setSelectedBy2(e.target.value)}
+              onChange={(e) => handleMaxExperience(e.target.value)}
               className="m-1 p-1 border border-gray-300 rounded w-full"
             >
-              <option value="Max.Exp">Max.Exp</option>
-              <option value="someone_else">Others</option>
+              <option value="">Max.Exp</option>
+              <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+              <option value="">Others</option>
             </select>
           </div>
         </div>

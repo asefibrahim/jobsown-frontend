@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
-const CurrentLocation = ({  hireText }) => {
+const cityArry = ["London", "Los Angeles", "Sydney", "Berlin", "Toronto", "Madrid", "Singapore", "New Delhi", "Paris", "Miami"];
+const CurrentLocation = ({  hireText, setCityOrLocation }) => {
   const [isOptionsVisible, setOptionsVisible] = useState(false);
   const [selectedBy, setSelectedBy] = useState("Search current city/area");
   const toggleOptions = () => {
@@ -8,7 +8,8 @@ const CurrentLocation = ({  hireText }) => {
   };
 
   const handleChange = (value) => {
-    setSelectedOption(value);
+    setSelectedBy(value);
+    setCityOrLocation(value);
   };
 
   return (
@@ -23,13 +24,18 @@ const CurrentLocation = ({  hireText }) => {
         <div>
           <select
             value={selectedBy}
-            onChange={(e) => setSelectedBy(e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
             className="m-1 p-1 border border-gray-300 rounded w-full"
           >
-            <option value="Search current city/area">
+            <option value="">
               Search current city/area
             </option>
-            <option value="someone_else">Others</option>
+            {
+              cityArry?.map(city => (
+                <option value={city}>{city}</option>
+              ))
+            }
+            <option value="">Others</option>
           </select>
         </div>
       )}

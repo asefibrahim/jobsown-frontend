@@ -29,23 +29,29 @@ const SearchCandidatesForm = () => {
                         <div className="flex gap-5">
                         <select className="bg-[#F3F3F3] w-72 px-3 py-2.5 mt-2 outline-none font-medium rounded-md" name="min_experience" id="" placeholder>
                             <option className="text-[#888888]" value="">Minimum experience</option>
+                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
-                            <option className="text-black" value="3">3</option>
+                            <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                             <option value="6">6</option>
                             <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
                         </select>
                         <select className="bg-[#F3F3F3] w-72 px-3 py-2.5 mt-2 outline-none font-medium rounded-md" name="max_experience" id="" placeholder>
                             <option className="text-[#888888]" value="">Maximum experience</option>
+                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
-                            <option className="text-black" value="3">3</option>
+                            <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                             <option value="6">6</option>
                             <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
                         </select>
                         </div>
                     </div>
@@ -61,6 +67,8 @@ const SearchCandidatesForm = () => {
                             <option value="5">5</option>
                             <option value="6">6</option>
                             <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
                         </select>
                         <select className="bg-[#F3F3F3] w-72 px-3 py-2 mt-2.5 outline-none font-medium rounded-md" name="max_salary" id="" placeholder>
                             <option className="text-[#888888]" value="">Max. salary in lakhs</option>
@@ -71,6 +79,8 @@ const SearchCandidatesForm = () => {
                             <option value="5">5</option>
                             <option value="6">6</option>
                             <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
                         </select>
                         </div>
                         <div className="mt-7">
