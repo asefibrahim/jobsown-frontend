@@ -2,23 +2,24 @@ import React, { useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import JobPreferenceModal from "./PreferenceModal";
 
-const JobPreference = () => {
+const JobPreference = ({setJobPerferences}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [preferences, setPreferences] = useState([ "Full Time","Part Time"]);
+  const [preferences, setPreferences] = useState({
+    employment_type: [], //for default you can use value like ["Full time", "Part Time"];
+    preferred_workplace: [],
+    preferred_shift: []
+  },);
 
 
   const predefinedPreferences = [
     { category: "employment_type", name: "Full Time", value: "Full Time" },
     { category: "employment_type", name: "Part Time", value: "Part Time" },
-    {
-      category: "workplace",
-      name: "Work from Office",
-      value: "Work from Office",
-    },
+    { category: "workplace", name: "Work from Office", value: "Work from Office" },
     { category: "workplace", name: "Work from Home", value: "Work from Home" },
     { category: "shift", name: "Day Shift", value: "Day Shift" },
     { category: "shift", name: "Night Shift", value: "Night Shift" },
   ];
+
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -30,6 +31,7 @@ const JobPreference = () => {
 
   const handleSaveChanges = (updatedPreferences) => {
     setPreferences(updatedPreferences);
+    setJobPerferences(updatedPreferences)
     handleCloseModal();
   };
 
@@ -50,7 +52,23 @@ const JobPreference = () => {
           </div>
         </div>
         <ul className="lg:flex pt-5 gap-3 list-inside list-none">
-          {preferences.map((preference, index) => (
+          {preferences?.employment_type.map((preference, index) => (
+            <li
+              key={index}
+              className="text-sm font-medium text-blue-500 border border-blue-500 rounded-lg px-3 py-2"
+            >
+              {preference}
+            </li>
+          ))}
+          {preferences?.preferred_workplace.map((preference, index) => (
+            <li
+              key={index}
+              className="text-sm font-medium text-blue-500 border border-blue-500 rounded-lg px-3 py-2"
+            >
+              {preference}
+            </li>
+          ))}
+          {preferences?.preferred_shift.map((preference, index) => (
             <li
               key={index}
               className="text-sm font-medium text-blue-500 border border-blue-500 rounded-lg px-3 py-2"

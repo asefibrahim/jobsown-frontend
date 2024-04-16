@@ -11,7 +11,7 @@ const Documents = () => {
     setIsUploadModalOpen(false);
   };
   return (
-    <div className="mb-12">
+    <div className="mb-6">
       <div className="bg-gray-100 rounded-lg py-6 px-8 mt-8">
         <h1 className="text-lg font-medium tracking-wide text-gray-800">
           Documents & assets

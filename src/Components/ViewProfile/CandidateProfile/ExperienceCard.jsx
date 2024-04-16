@@ -64,32 +64,19 @@ const ExperienceCard = ({ index, totalCards, onDelete, initialData }) => {
         <div className="lg:ps-[68px]">
           <div className="pt-6">
             <h3 className="text-sm text-gray-400 font-medium">Department</h3>
-            <ul className="flex pt-2 gap-3 list-inside list-disc">
-              
-              {experienceData.department.map((dept, index) => (
-                <li key={index} className="text-sm font-medium text-gray-800">
-                  {dept}
-                </li>
-              ))}
-            </ul>
+            <p className="text-sm font-medium text-gray-800">{experienceData.department}</p>
           </div>
           <div className="pt-6">
             <h3 className="text-sm text-gray-400 font-medium">Industry</h3>
-            <ul className="flex pt-2 gap-3 list-inside list-disc">
-              {experienceData.industry.map((ind, index) => (
-                <li key={index} className="text-sm font-medium text-gray-800">
-                  {ind}
-                </li>
-              ))}
-            </ul>
+            <p className="text-sm font-medium text-gray-800">{experienceData.industry}</p>
           </div>
           <div className="pt-6 flex items-center gap-4">
             <div className="px-3 py-2 text-sm bg-white border border-blue-500 text-blue-700 rounded-lg">
-              {experienceData.startDate} - {experienceData.endDate}
+              {experienceData.start_date} - {experienceData.end_date}
             </div>
 
             <div className="px-3 py-2 text-sm bg-white border border-blue-500 text-blue-700 rounded-lg">
-              {experienceData.employmentType}
+              {experienceData.job_type}
             </div>
           </div>
         </div>

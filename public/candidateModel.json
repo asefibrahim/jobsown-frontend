@@ -1,0 +1,40 @@
+{
+    "name": "Alice Johnson",
+    "image": "https://i.ibb.co/smxtktD/Cv-profilr-photo.jpg",
+    "experience_years":3,
+    "location": "London",
+    "current_salary": 5,
+    "experience": {
+      "job_title": "UI/UX Designer",
+      "company": "Design Co.",
+      "Department": "Design",
+      "job_role": "Junior Designer",
+      "start_date": "2020-03-10",
+      "end_date": "2023-03-10",
+      "job_type": "Full-time",
+      "job_city": "London",
+      "pay_type": "£45,000 per year (Fixed only)"
+    },
+    "skills": [
+      "Figma",
+      "Wireframing",
+      "UI design",
+      "Prototyping",
+      "Photoshop"
+    ],
+    "languages": [
+      "English",
+      "French"
+    ],
+    "cv_link": "https://drive.google.com/file/d/1tx-UZ3_ssEjA9gcqAGqSVnL4bnxx4hqd/view?usp=sharing",
+    "job_preferences": {
+      "employment_type": ["Full Time"],
+      "preferred_workplace": ["Work From Home"],
+      "preferred_shift": ["Day Shift"]
+    },
+    "preferred_job_title": ["UI/UX Designer", "Front End Developer"],
+    "phone_number": "+44 1234 567890",
+    "education": "12th Pass",
+    "gender": "Male",
+    "age": 22
+  }

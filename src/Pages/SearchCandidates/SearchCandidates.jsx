@@ -116,6 +116,15 @@ const SearchCandidates = () => {
     })
   }, [haveCv, cityOrLocation, searchKeyword, searchMinExperience, searchMaxExperience, searchIndustries, searchMinSarlary, searchMaxSarlary, searchEducation, gender, minAge, maxAge, searchLanguage ])
 
+  // // clear search and sorting results
+  // const handleSearchClear = () => {
+  //   setSearchKeyword(keyword);
+  //   setHaveCv(null);
+  //   setGender(null);
+  //   setSearchEducation("");
+  //   setCityOrLocation(currentCity);
+  // }
+
   return (
     <div>
       <Sidebar />
@@ -130,7 +139,7 @@ const SearchCandidates = () => {
               <div className="text-2xl font-semibold text-blue-800">
                 Filters
               </div>
-              <div className="text-lg">Clear</div>
+              <div className="text-base font-medium cursor-pointer hover:text-[#000099]">Clear</div>
             </div>
             <div className="p-4 custom-border-bottom">
               <div className="font-semibold text-blue-800 py-2">

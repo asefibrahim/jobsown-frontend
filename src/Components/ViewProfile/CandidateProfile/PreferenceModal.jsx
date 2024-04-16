@@ -8,12 +8,38 @@ const JobPreferenceModal = ({
 }) => {
   const [selectedPreferences, setSelectedPreferences] = useState(preferences);
 
-  const handleCheckboxChange = (preference) => {
-    const updatedPreferences = selectedPreferences.includes(preference)
-      ? selectedPreferences.filter((p) => p !== preference)
-      : [...selectedPreferences, preference];
-    setSelectedPreferences(updatedPreferences);
-  };
+  // handle Preferred employee type
+  const handleEmployeeTypeCheckbox = (preference) => {
+      const updatedPreferences = selectedPreferences.employment_type.includes(preference)
+      ? selectedPreferences.employment_type.filter((p) => p !== preference)
+      : [...selectedPreferences.employment_type, preference];
+      setSelectedPreferences(prevState => ({
+        ...prevState,
+        employment_type: updatedPreferences
+      }));
+  }
+
+  // handle Preferred shift 
+  const handleEmployeeShiftCheckbox = (preference) => {
+     const updatedPreferences = selectedPreferences.preferred_shift.includes(preference)
+     ? selectedPreferences.preferred_shift.filter((p) => p !== preference)
+     : [...selectedPreferences.preferred_shift, preference];
+     setSelectedPreferences(prevState => ({
+       ...prevState,
+       preferred_shift: updatedPreferences
+     }));
+ }
+
+   // handle Preferred workplace 
+   const handleEmployeeWorkplaceCheckbox = (preference) => {
+    const updatedPreferences = selectedPreferences.preferred_workplace.includes(preference)
+    ? selectedPreferences.preferred_workplace.filter((p) => p !== preference)
+    : [...selectedPreferences.preferred_workplace, preference];
+    setSelectedPreferences(prevState => ({
+      ...prevState,
+      preferred_workplace: updatedPreferences
+    }));
+}
 
   const handleSaveChanges = () => {
     onSaveChanges(selectedPreferences);
@@ -35,8 +61,8 @@ const JobPreferenceModal = ({
                 <li
                   key={index}
                   className={`flex items-center justify-between text-sm font-medium cursor-pointer m-2 rounded-lg py-2 px-4 border ${
-                    selectedPreferences.includes(preference.value)
-                      ? "border-blue-500" // Apply blue border if checked
+                    selectedPreferences?.employment_type.includes(preference.value)
+                      ? console.log('tsfkdjfkdjf') // Apply blue border if checked
                       : "border-gray-300" // Apply gray border if not checked
                   }`}
                 >
@@ -45,8 +71,8 @@ const JobPreferenceModal = ({
                     <input
                       type="checkbox"
                       value={preference.value}
-                      checked={selectedPreferences.includes(preference.value)}
-                      onChange={() => handleCheckboxChange(preference.value)}
+                      checked={selectedPreferences?.employment_type.includes(preference.value)}
+                      onChange={() => handleEmployeeTypeCheckbox(preference.value)}
                       className="form-checkbox h-5 w-5 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
                     />
                   </label>
@@ -65,7 +91,7 @@ const JobPreferenceModal = ({
                 <li
                   key={index}
                   className={`flex items-center justify-between text-sm font-medium cursor-pointer m-2 rounded-lg py-2 px-4 border ${
-                    selectedPreferences.includes(preference.value)
+                    selectedPreferences.preferred_workplace.includes(preference.value)
                       ? "border-blue-500" // Apply blue border if checked
                       : "border-gray-300" // Apply gray border if not checked
                   }`}
@@ -75,8 +101,8 @@ const JobPreferenceModal = ({
                     <input
                       type="checkbox"
                       value={preference.value}
-                      checked={selectedPreferences.includes(preference.value)}
-                      onChange={() => handleCheckboxChange(preference.value)}
+                      checked={selectedPreferences.preferred_workplace.includes(preference.value)}
+                      onChange={() => handleEmployeeWorkplaceCheckbox(preference.value)}
                       className="form-checkbox h-5 w-5 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
                     />
                   </label>
@@ -95,7 +121,7 @@ const JobPreferenceModal = ({
                 <li
                   key={index}
                   className={`flex items-center justify-between text-sm font-medium cursor-pointer m-2 rounded-lg py-2 px-4 border ${
-                    selectedPreferences.includes(preference.value)
+                    selectedPreferences.preferred_shift.includes(preference.value)
                       ? "border-blue-500" // Apply blue border if checked
                       : "border-gray-300" // Apply gray border if not checked
                   }`}
@@ -105,8 +131,8 @@ const JobPreferenceModal = ({
                     <input
                       type="checkbox"
                       value={preference.value}
-                      checked={selectedPreferences.includes(preference.value)}
-                      onChange={() => handleCheckboxChange(preference.value)}
+                      checked={selectedPreferences.preferred_shift.includes(preference.value)}
+                      onChange={() => handleEmployeeShiftCheckbox(preference.value)}
                       className="form-checkbox h-5 w-5 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
                     />
                   </label>

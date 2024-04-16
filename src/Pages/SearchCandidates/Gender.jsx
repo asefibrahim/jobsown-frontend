@@ -8,8 +8,9 @@ const Gender = ({ optionTexts, hireText, setGender }) => {
   };
 
   const handleChange = (value, index) => {
+    
+    setGender(value);
     setSelectedOption(`option${index + 1}`);
-    setGender(value)
     // Additional logic if needed
     console.log("I am checking from edufcation option", value);
   };

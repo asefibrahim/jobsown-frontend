@@ -4,8 +4,8 @@ import { IoMdAdd } from "react-icons/io";
 import EditLanguagesModal from "./EditLanguagesModal";
 import UploadModal from "./UploadModal"; // Import the UploadModal component
 
-const Languages = () => {
-  const initialLanguagesData = [{ language: "English" }, { language: "Hindi" }];
+const Languages = ({setLanguages}) => {
+  const initialLanguagesData = [];
 
   const [languagesData, setLanguagesData] = useState(initialLanguagesData);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -29,6 +29,8 @@ const Languages = () => {
 
   const updateLanguagesData = (newData) => {
     setLanguagesData(newData);
+    const newLanguages = newData?.map(lan => lan.language)
+    setLanguages(newLanguages);
     closeEditModal();
   };
 

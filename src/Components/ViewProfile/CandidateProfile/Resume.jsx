@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IoMdAdd } from "react-icons/io";
 
 import UploadModal from "./UploadModal"; // Import the UploadModal component
-const Resume = () => {
+const Resume = ({setHasCv}) => {
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false); // State for upload modal
   const openUploadModal = () => {
     setIsUploadModalOpen(true);
@@ -33,7 +33,7 @@ const Resume = () => {
           <span className="font-medium ">Upload</span>
         </button>
       </div>
-      {isUploadModalOpen && <UploadModal onClose={closeUploadModal} />}
+      {isUploadModalOpen && <UploadModal setHasCv={setHasCv} onClose={closeUploadModal} />}
     </div>
   );
 };

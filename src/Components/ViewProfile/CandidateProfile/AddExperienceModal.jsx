@@ -4,30 +4,26 @@ const AddExperienceModal = ({ addExperience, onClose }) => {
   const initialFormData = {
     title: "",
     company: "",
-    department: [], // Initialize as an empty array
-    industry: [],
-    startDate: "",
-    endDate: "",
-    employmentType: "",
+    department: "", 
+    industry: "",
+    job_role: "",
+    job_city: "",
+    start_date: "",
+    end_date: "",
+    job_type: "",
+    pay_type: "",
   };
 
   const [formData, setFormData] = useState(initialFormData);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (name === "department" || name === "industry") {
-      // For department and industry fields, split the input string by commas to form an array
-      setFormData({
-        ...formData,
-        [name]: value.split(",").map(item => item.trim()), // Split by commas and trim any whitespace
-      });
-    } else {
+
       setFormData({
         ...formData,
         [name]: value,
       });
     }
-  };
   
 
   const handleSubmit = (e) => {
@@ -87,10 +83,10 @@ const AddExperienceModal = ({ addExperience, onClose }) => {
                 type="text"
                 id="department"
                 name="department"
-                value={formData.department.join(",")}
+                value={formData.department}
                 onChange={handleInputChange}
                 className="border border-gray-300 rounded-lg px-4 py-2 w-full"
-                placeholder="Enter department(s) separated by commas"
+                placeholder="Example: UX/UI design"
               />
             </div>
             <div className="mb-4">
@@ -107,7 +103,41 @@ const AddExperienceModal = ({ addExperience, onClose }) => {
                 value={formData.industry}
                 onChange={handleInputChange}
                 className="border border-gray-300 rounded-lg px-4 py-2 w-full"
-                placeholder="Enter industry"
+                placeholder="Example: Development"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="industry"
+                className="block text-gray-700 font-medium mb-1"
+              >
+                Job Role:
+              </label>
+              <input
+                type="text"
+                id="job_role"
+                name="job_role"
+                value={formData.job_role}
+                onChange={handleInputChange}
+                className="border border-gray-300 rounded-lg px-4 py-2 w-full"
+                placeholder="Example: Junior Developer"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="industry"
+                className="block text-gray-700 font-medium mb-1"
+              >
+                Job City:
+              </label>
+              <input
+                type="text"
+                id="job_city"
+                name="job_city"
+                value={formData.job_city}
+                onChange={handleInputChange}
+                className="border border-gray-300 rounded-lg px-4 py-2 w-full"
+                placeholder="Enter city"
               />
             </div>
             <div className="mb-4">
@@ -120,8 +150,8 @@ const AddExperienceModal = ({ addExperience, onClose }) => {
               <input
                 type="text"
                 id="startDate"
-                name="startDate"
-                value={formData.startDate}
+                name="start_date"
+                value={formData.start_date}
                 onChange={handleInputChange}
                 className="border border-gray-300 rounded-lg px-4 py-2 w-full"
                 placeholder="Enter start date"
@@ -137,11 +167,11 @@ const AddExperienceModal = ({ addExperience, onClose }) => {
               <input
                 type="text"
                 id="endDate"
-                name="endDate"
-                value={formData.endDate}
+                name="end_date"
+                value={formData.end_date}
                 onChange={handleInputChange}
                 className="border border-gray-300 rounded-lg px-4 py-2 w-full"
-                placeholder="Enter end date"
+                placeholder="Enter end date or present"
               />
             </div>
             <div className="mb-4">
@@ -154,11 +184,28 @@ const AddExperienceModal = ({ addExperience, onClose }) => {
               <input
                 type="text"
                 id="employmentType"
-                name="employmentType"
-                value={formData.employmentType}
+                name="job_type"
+                value={formData.job_type}
                 onChange={handleInputChange}
                 className="border border-gray-300 rounded-lg px-4 py-2 w-full"
                 placeholder="Enter employment type"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="payType"
+                className="block text-gray-700 font-medium mb-1"
+              >
+                Pay Type: per year (Fixed only)
+              </label>
+              <input
+                type="text"
+                id="payType"
+                name="pay_type"
+                value={formData.pay_type}
+                onChange={handleInputChange}
+                className="border border-gray-300 rounded-lg px-4 py-2 w-full"
+                placeholder="Enter pay type"
               />
             </div>
             <button

@@ -3,16 +3,8 @@ import { FaRegEdit } from "react-icons/fa";
 import { RiErrorWarningLine } from "react-icons/ri";
 import EditSkillsModal from "./EditSkillsModal";
 
-const Skills = () => {
-  const initialSkillsData = [
-    "Figma",
-    "Wireframing",
-    "UI design",
-    "UI / UX",
-    "Design",
-    "Illustrator",
-    "Prototyping",
-  ];
+const Skills = ({setSkills}) => {
+  const initialSkillsData = [];
 
   const [skillsData, setSkillsData] = useState(initialSkillsData);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -27,6 +19,7 @@ const Skills = () => {
 
   const updateSkillsData = (newData) => {
     setSkillsData(newData);
+    setSkills(newData);
     closeEditModal();
   };
 
