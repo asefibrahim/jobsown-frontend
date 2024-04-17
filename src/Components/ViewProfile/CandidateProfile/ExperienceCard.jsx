@@ -7,6 +7,7 @@ import EditExperienceModal from "./EditExperienceModal";
 
 const ExperienceCard = ({ index, totalCards, onDelete, initialData }) => {
   const [experienceData, setExperienceData] = useState(initialData);
+  console.log("does experience card found", initialData);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const openEditModal = () => {
@@ -34,10 +35,10 @@ const ExperienceCard = ({ index, totalCards, onDelete, initialData }) => {
             <MdOutlineMapsHomeWork className="text-4xl mt-2" />
             <div>
               <h1 className="text-lg font-medium tracking-wide text-gray-800">
-                {experienceData.title}
+                {experienceData?.title}
               </h1>
               <p className="text-sm font-medium text-gray-800">
-                {experienceData.company}
+                {experienceData?.company}
               </p>
             </div>
           </div>
@@ -64,19 +65,19 @@ const ExperienceCard = ({ index, totalCards, onDelete, initialData }) => {
         <div className="lg:ps-[68px]">
           <div className="pt-6">
             <h3 className="text-sm text-gray-400 font-medium">Department</h3>
-            <p className="text-sm font-medium text-gray-800">{experienceData.department}</p>
+            <p className="text-sm font-medium text-gray-800">{experienceData?.department}</p>
           </div>
           <div className="pt-6">
             <h3 className="text-sm text-gray-400 font-medium">Industry</h3>
-            <p className="text-sm font-medium text-gray-800">{experienceData.industry}</p>
+            <p className="text-sm font-medium text-gray-800">{experienceData?.industry}</p>
           </div>
           <div className="pt-6 flex items-center gap-4">
             <div className="px-3 py-2 text-sm bg-white border border-blue-500 text-blue-700 rounded-lg">
-              {experienceData.start_date} - {experienceData.end_date}
+              {experienceData?.start_date} - {experienceData?.end_date}
             </div>
 
             <div className="px-3 py-2 text-sm bg-white border border-blue-500 text-blue-700 rounded-lg">
-              {experienceData.job_type}
+              {experienceData?.job_type}
             </div>
           </div>
         </div>

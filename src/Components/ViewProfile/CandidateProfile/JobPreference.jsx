@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import JobPreferenceModal from "./PreferenceModal";
 
-const JobPreference = ({setJobPerferences}) => {
+const JobPreference = ({setJobPerferences, jobPreferences}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [preferences, setPreferences] = useState({
     employment_type: [], //for default you can use value like ["Full time", "Part Time"];
@@ -52,7 +52,7 @@ const JobPreference = ({setJobPerferences}) => {
           </div>
         </div>
         <ul className="lg:flex pt-5 gap-3 list-inside list-none">
-          {preferences?.employment_type.map((preference, index) => (
+          {jobPreferences?.employment_type?.map((preference, index) => (
             <li
               key={index}
               className="text-sm font-medium text-blue-500 border border-blue-500 rounded-lg px-3 py-2"
@@ -60,7 +60,7 @@ const JobPreference = ({setJobPerferences}) => {
               {preference}
             </li>
           ))}
-          {preferences?.preferred_workplace.map((preference, index) => (
+          {jobPreferences?.preferred_workplace?.map((preference, index) => (
             <li
               key={index}
               className="text-sm font-medium text-blue-500 border border-blue-500 rounded-lg px-3 py-2"
@@ -68,7 +68,7 @@ const JobPreference = ({setJobPerferences}) => {
               {preference}
             </li>
           ))}
-          {preferences?.preferred_shift.map((preference, index) => (
+          {jobPreferences?.preferred_shift?.map((preference, index) => (
             <li
               key={index}
               className="text-sm font-medium text-blue-500 border border-blue-500 rounded-lg px-3 py-2"

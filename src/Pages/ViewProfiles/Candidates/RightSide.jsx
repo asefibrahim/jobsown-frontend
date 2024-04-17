@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { IoMdAdd } from "react-icons/io";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import ExperienceCard from "../../../Components/ViewProfile/CandidateProfile/ExperienceCard";
@@ -10,6 +10,8 @@ import Documents from "../../../Components/ViewProfile/CandidateProfile/Document
 import AddExperienceModal from "../../../Components/ViewProfile/CandidateProfile/AddExperienceModal";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import JobPreference from "../../../Components/ViewProfile/CandidateProfile/JobPreference";
+import axios from "axios";
+import Swal from "sweetalert2";
 const eduationArry = ["10th Pass", "12th Pass", "Diploma", "ITI", "Graduate", "Post Graduate"];
 const RightSide = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,6 +29,24 @@ const RightSide = () => {
   const [preferredJobTitle, setPreferredJobTitle] = useState("");
   const [jobPreferences, setJobPerferences] = useState({});
   const [experiences, setExperiences] = useState([]); 
+  const [userInfo, setUserInfo] = useState({});
+  const [storeLanguages, setStoreLanguages] = useState(null);
+  useEffect(() => {
+    axios.get(`http://localhost:5000/api/candidate-info/${user?.email}`)
+    .then(res => {
+      setExperiences(res.data?.experience || []);
+      setSkills(res.data?.skills || []);
+      setUserInfo(res.data);
+      const getLanguages = res.data?.languages?.map(langu => ({language: langu}))
+      setLanguages(getLanguages);
+      setJobPerferences(res.data?.job_preferences)
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }, [user?.email])
+
+  console.log("new skills data", skills);
 
   const initialFormData = {
     title: "",
@@ -56,32 +76,48 @@ const RightSide = () => {
   };
 
   const handleAddExperience = (newExperience) => {
+    console.log(experiences);
     setExperiences([...experiences, newExperience]); // Add the new experience to the experiences array
     handleCloseModal();
   };
 
-
 // handle submit info button
 const handleSubmitInformation = () => {
   const newCandidate = {
-    name: user?.displayName,
-    email: user?.email,
-    image: user?.photoURL,
-    experience_years: parseInt(experienceYear),
-    location: location,
-    current_salary: parseInt(currentSalary),
-    experience: experiences,
+    name: user?.displayName || userInfo?.name,
+    email: user?.email || userInfo?.email,
+    image: user?.photoURL || userInfo?.image,
+    experience_years: parseInt(experienceYear) || userInfo?.experience_years,
+    location: location || userInfo?.location,
+    current_salary: parseInt(currentSalary) || userInfo?.current_salary,
+    experience: experiences || userInfo?.experience,
     skills: skills,
-    languages: languages,
-    cv_link: hasCv,
-    job_preferences: jobPreferences,
-    preferred_job_title: [preferredJobTitle],
-    phone_number: phoneNum,
-    education: highestEducation,
-    gender: gender,
-    age: parseInt(age),
+    languages: storeLanguages || userInfo?.languages,
+    cv_link: hasCv || userInfo?.cv_link,
+    job_preferences: jobPreferences || userInfo?.job_preferences,
+    preferred_job_title: preferredJobTitle || userInfo?.preferred_job_title,
+    phone_number: phoneNum || userInfo?.phone_number,
+    education: highestEducation || userInfo?.education,
+    gender: gender || userInfo?.gender,
+    age: parseInt(age) || userInfo?.age,
   }
   console.log("New Candidates is", newCandidate);
+  axios.post("http://localhost:5000/api/addcandidate", newCandidate)
+  .then(res => {
+    console.log("Save candidates info result is",res.data);
+    if(res.data.acknowledged){
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Your information saved successfully",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+  })
+  .catch(err => {
+    console.log(err);
+  })
 }
 
 
@@ -103,11 +139,11 @@ const handleSubmitInformation = () => {
           </div>
         </div>
 
-        {experiences.map((experience, index) => (
+        {experiences?.map((experience, index) => (
           <ExperienceCard
             key={index}
             index={index}
-            totalCards={experiences.length}
+            totalCards={experiences?.length}
             onDelete={deleteExperience}
             initialData={experience}
           />
@@ -116,53 +152,60 @@ const handleSubmitInformation = () => {
         <div className="pt-8">
           <div className="bg-gray-100 px-8 py-8 flex justify-between items-center rounded-md">
           <h5 className="text-lg font-medium text-gray-800">Experience Years</h5>
-          <input onChange={(e) => setExperienceYear(e.target.value)} className="w-60 p-2 text-lg font-semibold outline-none placeholder:text-sm" type="number" placeholder="Enter your experience years" />
+          <input onChange={(e) => setExperienceYear(e.target.value)} className="w-60 p-2 text-lg font-semibold outline-none placeholder:text-sm" defaultValue={userInfo?.experience_years || null} type="number" placeholder="Enter your experience years" />
           </div>
         </div>
         <div className="pt-8">
           <div className="bg-gray-100 px-8 py-8 flex justify-between items-center rounded-md">
           <h5 className="text-lg font-medium text-gray-800">Current Salary <span className="text-base">(Yearly Lakh)</span></h5>
-          <input onChange={(e) => setCurrentSalary(e.target.value)} className="w-60 p-2 text-lg font-semibold outline-none placeholder:text-sm" type="number" placeholder="Enter Current Salary" />
+          <input onChange={(e) => setCurrentSalary(e.target.value)} className="w-60 p-2 text-lg font-semibold outline-none placeholder:text-sm" type="number" defaultValue={userInfo?.current_salary || null} placeholder="Enter Current Salary" />
           </div>
         </div>
         <div className="pt-8">
           <div className="bg-gray-100 px-8 py-8 flex justify-between items-center rounded-md">
           <h5 className="text-lg font-medium text-gray-800">Preferred Job Title</h5>
-          <input onChange={(e) => setPreferredJobTitle(e.target.value)} className="w-60 p-2 text-lg font-semibold outline-none placeholder:text-sm" type="text" placeholder="Enter preferred job title" />
+          <input onChange={(e) => setPreferredJobTitle(e.target.value)} className="w-60 p-2 text-lg font-semibold outline-none placeholder:text-sm" type="text" defaultValue={userInfo?.preferred_job_title || ""} placeholder="Enter preferred job title" />
           </div>
         </div>
         <div className="pt-8">
           <div className="bg-gray-100 px-8 py-8 flex justify-between items-center rounded-md">
           <h5 className="text-lg font-medium text-gray-800">Location</h5>
-          <input onChange={(e) => setLocation(e.target.value)} className="w-60 p-2 text-base font-semibold outline-none placeholder:text-sm" type="text" placeholder="Enter your location" />
+          <input onChange={(e) => setLocation(e.target.value)} className="w-60 p-2 text-base font-semibold outline-none placeholder:text-sm" type="text" defaultValue={userInfo?.location || ""} placeholder="Enter your location" />
           </div>
         </div>
-        <div className="pt-8">
+
+        <div className="pt-6">
+          {/* Other content */}
+          <Skills 
+            skills={skills}
+            setSkills={setSkills}
+          />
+                  <div className="pt-8">
           <div className="bg-gray-100 px-8 py-8 flex justify-between items-center rounded-md">
           <h5 className="text-lg font-medium text-gray-800">Phone</h5>
-          <input onChange={(e) => setPhoneNum(e.target.value)} className="w-60 p-2 text-base font-semibold outline-none placeholder:text-sm" type="number" placeholder="Enter your phone" />
+          <input onChange={(e) => setPhoneNum(e.target.value)} className="w-60 p-2 text-base font-semibold outline-none placeholder:text-sm" type="number" defaultValue={userInfo?.phone_number || null} placeholder="Enter your phone" />
           </div>
         </div>
         <div className="pt-8">
           <div className="bg-gray-100 px-8 py-8 flex justify-between items-center rounded-md">
           <h5 className="text-lg font-medium text-gray-800">Age</h5>
-          <input onChange={(e) => setAge(e.target.value)} className="w-60 p-2 text-base font-semibold outline-none placeholder:text-sm" type="number" placeholder="Enter your age" />
+          <input onChange={(e) => setAge(e.target.value)} className="w-60 p-2 text-base font-semibold outline-none placeholder:text-sm" type="number" defaultValue={userInfo?.age || null} placeholder="Enter your age" />
           </div>
         </div>
         <div className="pt-8">
           <div className="bg-gray-100 px-8 py-8 flex justify-between items-center rounded-md">
           <h5 className="text-lg font-medium text-gray-800">Gender</h5>
-          <select onChange={(e) => setGender(e.target.value)} className="w-60 p-2 text-base font-semibold outline-none placeholder:text-sm" name="" id="">
+          <select onChange={(e) => setGender(e.target.value)} value={userInfo?.gender || ""} className="w-60 p-2 text-base font-semibold outline-none placeholder:text-sm" name="" id="">
             <option value="">Set Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
           </div>
         </div>
-        <div className="pt-8">
+        <div className="pt-8 pb-8">
           <div className="bg-gray-100 px-8 py-8 flex justify-between items-center rounded-md">
           <h5 className="text-lg font-medium text-gray-800">Highest Education</h5>
-          <select onChange={(e) => setHightestEducation(e.target.value)} className="w-60 p-2 text-base font-semibold outline-none placeholder:text-sm" name="" id="">
+          <select onChange={(e) => setHightestEducation(e.target.value)} value={userInfo?.education || ""} className="w-60 p-2 text-base font-semibold outline-none placeholder:text-sm" name="" id="">
             <option value="">Hightest Education</option>
             {
               eduationArry?.map(edu => (
@@ -172,19 +215,16 @@ const handleSubmitInformation = () => {
           </select>
           </div>
         </div>
-
-        <div className="pt-6">
-          {/* Other content */}
-          <Skills 
-            setSkills={setSkills}
-          />
           <Languages 
+            languages={languages}
+            setStoreLanguages={setStoreLanguages}
             setLanguages={setLanguages}
           />
           <Resume setHasCv={setHasCv} />
           <OtherDetails />
           <JobPreference
             setJobPerferences={setJobPerferences}
+            jobPreferences={jobPreferences}
           />
           <Documents />
         </div>

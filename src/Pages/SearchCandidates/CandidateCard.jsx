@@ -4,15 +4,16 @@ import { HiOutlineBriefcase } from "react-icons/hi";
 import { HiOutlineCash } from "react-icons/hi";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import "./SearchCandidates.css";
-const CandidateCard = ({candidate}) => {
+import { Link } from "react-router-dom";
+const CandidateCard = ({candidate, border, background, width, viewNum}) => {
   console.log("The candidates are", candidate);
-  const {name, image, experience, experience_years, current_salary, location, job_preferences } = candidate;
+  const {_id, name, image, experience, experience_years, current_salary, location, job_preferences } = candidate;
   const [selectedOption1, setSelectedOption1] = useState(null);
   const handleChange = (value) => {
     setSelectedOption1(value);
   };
   return (
-    <div className="mt-4 w-[95%] border border-black rounded-lg">
+    <div style={{background: background, width: width, border: border}} className={`mt-4 border-black rounded-lg`}>
       <div class="flex items-center px-6 p-4 ">
         <div className="flex items-center ">
           <input
@@ -32,7 +33,7 @@ const CandidateCard = ({candidate}) => {
         </div>
         <div className=" text-xl font-semibold pl-6 ml-12">{name}</div>
         <button className=" font-semibold text-blue-800 ml-4">
-          View profile for free
+          <Link to={`/candidate-details/${_id}`}>View profile for free</Link>
         </button>
       </div>
       <div className="flex items-center gap-5 mt-1 ml-16">
@@ -71,7 +72,7 @@ const CandidateCard = ({candidate}) => {
           </div>
         </div>
       </div>
-      <button className=" flex ml-20 bg-blue-800 text-white px-4 py-2 rounded-md mb-4">
+      <button style={{display: viewNum}} className="flex ml-20 bg-blue-800 text-white px-4 py-2 rounded-md mb-4">
         View phone number
       </button>
     </div>

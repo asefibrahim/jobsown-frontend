@@ -4,10 +4,9 @@ import { IoMdAdd } from "react-icons/io";
 import EditLanguagesModal from "./EditLanguagesModal";
 import UploadModal from "./UploadModal"; // Import the UploadModal component
 
-const Languages = ({setLanguages}) => {
-  const initialLanguagesData = [];
+const Languages = ({setLanguages, languages, setStoreLanguages}) => {
 
-  const [languagesData, setLanguagesData] = useState(initialLanguagesData);
+  const [languagesData, setLanguagesData] = useState(languages);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false); // State for upload modal
 
@@ -29,10 +28,14 @@ const Languages = ({setLanguages}) => {
 
   const updateLanguagesData = (newData) => {
     setLanguagesData(newData);
+    setLanguages(newData)
+    console.log("so what is the new data", newData);
     const newLanguages = newData?.map(lan => lan.language)
-    setLanguages(newLanguages);
+    setStoreLanguages(newLanguages);
     closeEditModal();
   };
+
+
 
   return (
     <div className="mb-12">
@@ -52,7 +55,7 @@ const Languages = ({setLanguages}) => {
           </button>
         </div>
         <div className="flex items-center gap-4 mt-4">
-          {languagesData.slice(0, 6).map((language, index) => (
+          {languages?.slice(0, 6).map((language, index) => (
             <div
               key={index}
               className="px-3 py-2 text-sm bg-white text-blue-500 border border-blue-500 rounded-lg"
@@ -62,7 +65,7 @@ const Languages = ({setLanguages}) => {
           ))}
         </div>
         <div className="flex items-center gap-4 mt-4">
-          {languagesData.slice(6).map((language, index) => (
+          {languages?.slice(6).map((language, index) => (
             <div
               key={index}
               className="px-3 py-2 text-sm bg-white text-blue-500 border border-blue-500 rounded-lg"
@@ -74,7 +77,7 @@ const Languages = ({setLanguages}) => {
       </div>
       {isEditModalOpen && (
         <EditLanguagesModal
-          languagesData={languagesData}
+          languagesData={languages}
           updateLanguagesData={updateLanguagesData}
           onClose={closeEditModal}
         />

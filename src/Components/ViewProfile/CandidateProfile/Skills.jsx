@@ -3,7 +3,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { RiErrorWarningLine } from "react-icons/ri";
 import EditSkillsModal from "./EditSkillsModal";
 
-const Skills = ({setSkills}) => {
+const Skills = ({setSkills, skills}) => {
   const initialSkillsData = [];
 
   const [skillsData, setSkillsData] = useState(initialSkillsData);
@@ -33,7 +33,7 @@ const Skills = ({setSkills}) => {
                 Skills
               </h1>
               <p className="text-gray-400 text-sm font-medium pt-2">
-                {`${skillsData.length} skills medals earned`}
+                {`${skills?.length} skills medals earned`}
               </p>
             </div>
 
@@ -47,7 +47,7 @@ const Skills = ({setSkills}) => {
           </div>
 
           <div className="pt-6 lg:w-[55%] grid-cols-2  grid lg:grid-cols-4 gap-4">
-            {skillsData.map((skill, index) => (
+            {skills?.map((skill, index) => (
               <div
                 key={index}
                 className="px-3 flex items-center justify-center py-2 text-sm bg-white text-blue-500 border border-blue-500 rounded-lg"
@@ -67,7 +67,7 @@ const Skills = ({setSkills}) => {
       </div>
       {isEditModalOpen && (
         <EditSkillsModal
-          skillsData={skillsData}
+          skillsData={skills}
           updateSkillsData={updateSkillsData}
           onClose={closeEditModal}
         />

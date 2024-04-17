@@ -288,7 +288,12 @@ const SearchCandidates = () => {
           </div>
           {
             candidates?.map(candidate => (
-              <CandidateCard candidate={candidate} />
+              <CandidateCard
+               candidate={candidate}
+               width={"95%"}
+               border={"1px solid black"}
+               viewNum={"block"}
+                />
             ))
           }
         </div>
