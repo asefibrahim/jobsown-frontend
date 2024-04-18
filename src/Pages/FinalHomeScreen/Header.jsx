@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 import jobLogo from "../../assets/JobsownLogo.png";
+import menuIcon from "../../assets/menu.png";
 import ltLogo from "../Home/Images/LT-LOGO.png";
 import ProfileCard from "../../Components/ViewProfile/Header/ProfileCard";
 import helpIcon from "../../assets/Help.png";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({menuSmall, setMenuSmall}) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
@@ -14,12 +15,19 @@ const Header = () => {
     setIsProfileOpen(!isProfileOpen);
   };
 
+  const handleMenuWidth = () => {
+    setMenuSmall((prevMenuSmall) => !prevMenuSmall);
+  }
+
   return (
-    <nav className=" bg-white py-4 px-6 shadow-md ">
+    <nav className=" bg-white py-4 px-6 shadow-md">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
-        <div className="flex items-center">
+        <div className="flex items-center gap-16">
+          <div className="pl-4">
+            <img onClick={handleMenuWidth} src={menuIcon} alt="" />
+          </div>
           <Link to={"/"}>
-            <img src={jobLogo} alt="Logo 1" className="h-12 " />
+            <img src={jobLogo} alt="Logo 1" className="w-3/4" />
           </Link>
         </div>
 

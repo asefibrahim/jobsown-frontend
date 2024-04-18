@@ -21,7 +21,7 @@ const EditLanguagesModal = ({
 
   const [selectedLanguages, setSelectedLanguages] = useState(() => {
     const initialSelection = {};
-    languagesData.forEach((language) => {
+    languagesData?.forEach((language) => {
       initialSelection[language.language] = true;
     });
     return initialSelection;

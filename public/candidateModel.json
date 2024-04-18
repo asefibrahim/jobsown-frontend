@@ -1,40 +1,492 @@
-{
-    "name": "Alice Johnson",
+[
+  {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
     "image": "https://i.ibb.co/smxtktD/Cv-profilr-photo.jpg",
-    "experience_years":3,
-    "location": "London",
-    "current_salary": 5,
-    "experience": {
-      "job_title": "UI/UX Designer",
-      "company": "Design Co.",
-      "Department": "Design",
-      "job_role": "Junior Designer",
-      "start_date": "2020-03-10",
-      "end_date": "2023-03-10",
-      "job_type": "Full-time",
-      "job_city": "London",
-      "pay_type": "£45,000 per year (Fixed only)"
-    },
+    "experience_years": 4,
+    "location": "San Francisco",
+    "current_salary": 8,
+    "experience": [
+      {
+        "title": "Senior Frontend Developer",
+        "company": "Tech Innovations",
+        "department": "Engineering",
+        "industry": "Technology",
+        "job_role": "Frontend Developer",
+        "job_city": "San Francisco",
+        "start_date": "2018-05-01",
+        "end_date": "Present",
+        "job_type": "Full Time",
+        "pay_type": "$85000"
+      }
+    ],
     "skills": [
-      "Figma",
-      "Wireframing",
-      "UI design",
-      "Prototyping",
-      "Photoshop"
+      "React",
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "cv_link": "true",
+    "job_preferences": {
+      "employment_type": [
+        "Full Time"
+      ],
+      "preferred_workplace": [
+        "Work From Home"
+      ],
+      "preferred_shift": [
+        "Day Shift"
+      ]
+    },
+    "preferred_job_title": "Frontend Developer",
+    "phone_number": "1234567890",
+    "education": "Graduation",
+    "gender": "Male",
+    "age": 32
+  },
+  {
+    "name": "Alice Johnson",
+    "email": "alice.johnson@example.com",
+    "image": "https://i.ibb.co/L5TmQ81/review-Num1.jpg",
+    "experience_years": 6,
+    "location": "London",
+    "current_salary": 9,
+    "experience": [
+      {
+        "title": "Lead UX/UI Designer",
+        "company": "Creative Minds",
+        "department": "Design",
+        "industry": "Design",
+        "job_role": "UX/UI Designer",
+        "job_city": "London",
+        "start_date": "2016-09-01",
+        "end_date": "Present",
+        "job_type": "Full Time",
+        "pay_type": "£95000"
+      }
+    ],
+    "skills": [
+      "UI/UX Design",
+      "Sketch",
+      "Adobe XD",
+      "Figma"
     ],
     "languages": [
       "English",
       "French"
     ],
-    "cv_link": "https://drive.google.com/file/d/1tx-UZ3_ssEjA9gcqAGqSVnL4bnxx4hqd/view?usp=sharing",
+    "cv_link": "true",
     "job_preferences": {
-      "employment_type": ["Full Time"],
-      "preferred_workplace": ["Work From Home"],
-      "preferred_shift": ["Day Shift"]
+      "employment_type": [
+        "Full Time"
+      ],
+      "preferred_workplace": [
+        "Work From Office"
+      ],
+      "preferred_shift": [
+        "Day Shift"
+      ]
     },
-    "preferred_job_title": ["UI/UX Designer", "Front End Developer"],
-    "phone_number": "+44 1234 567890",
+    "preferred_job_title": "UX/UI Designer",
+    "phone_number": "0987654321",
+    "education": "Post Graduation",
+    "gender": "Female",
+    "age": 28
+  },
+  {
+    "name": "Ethan Clark",
+    "email": "ethan.clark@example.com",
+    "image": "https://i.ibb.co/Rvc1VX3/review-Four.jpg",
+    "experience_years": 3,
+    "location": "New York",
+    "current_salary": 7,
+    "experience": [
+      {
+        "title": "Software Engineer",
+        "company": "CodeCrafters",
+        "department": "Engineering",
+        "industry": "Technology",
+        "job_role": "Full Stack Developer",
+        "job_city": "New York",
+        "start_date": "2019-07-01",
+        "end_date": "Present",
+        "job_type": "Full Time",
+        "pay_type": "$75000"
+      }
+    ],
+    "skills": [
+      "JavaScript",
+      "Node.js",
+      "Express.js",
+      "MongoDB"
+    ],
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "cv_link": "true",
+    "job_preferences": {
+      "employment_type": [
+        "Full Time"
+      ],
+      "preferred_workplace": [
+        "Work From Home"
+      ],
+      "preferred_shift": [
+        "Day Shift"
+      ]
+    },
+    "preferred_job_title": "Full Stack Developer",
+    "phone_number": "1122334455",
+    "education": "Diploma",
+    "gender": "Male",
+    "age": 29
+  },
+  {
+    "name": "Sophia Wang",
+    "email": "sophia.wang@example.com",
+    "image": "https://i.ibb.co/5Bkyxxt/review-Three.jpg",
+    "experience_years": 5,
+    "location": "San Francisco",
+    "current_salary": 9,
+    "experience": [
+      {
+        "title": "Senior Product Manager",
+        "company": "TechGurus",
+        "department": "Product Management",
+        "industry": "Technology",
+        "job_role": "Product Manager",
+        "job_city": "San Francisco",
+        "start_date": "2017-03-01",
+        "end_date": "Present",
+        "job_type": "Full Time",
+        "pay_type": "$90000"
+      }
+    ],
+    "skills": [
+      "Product Management",
+      "Agile Methodologies",
+      "Scrum",
+      "Market Research"
+    ],
+    "languages": [
+      "English",
+      "Mandarin"
+    ],
+    "cv_link": "true",
+    "job_preferences": {
+      "employment_type": [
+        "Full Time"
+      ],
+      "preferred_workplace": [
+        "Work From Office"
+      ],
+      "preferred_shift": [
+        "Day Shift"
+      ]
+    },
+    "preferred_job_title": "Product Manager",
+    "phone_number": "3344556677",
+    "education": "ITI",
+    "gender": "Female",
+    "age": 35
+  },
+  {
+    "name": "Michael Brown",
+    "email": "michael.brown@example.com",
+    "image": "https://i.ibb.co/JsYFgPy/review-Tow.jpg",
+    "experience_years": 8,
+    "location": "Chicago",
+    "current_salary": 7,
+    "experience": [
+      {
+        "title": "Senior Data Scientist",
+        "company": "DataInsights",
+        "department": "Data Science",
+        "industry": "Technology",
+        "job_role": "Data Scientist",
+        "job_city": "Chicago",
+        "start_date": "2014-06-01",
+        "end_date": "Present",
+        "job_type": "Full Time",
+        "pay_type": "$70000"
+      }
+    ],
+    "skills": [
+      "Machine Learning",
+      "Python",
+      "SQL",
+      "Statistical Analysis"
+    ],
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "cv_link": "true",
+    "job_preferences": {
+      "employment_type": [
+        "Full Time"
+      ],
+      "preferred_workplace": [
+        "Work From Office"
+      ],
+      "preferred_shift": [
+        "Night Shift"
+      ]
+    },
+    "preferred_job_title": "Data Scientist",
+    "phone_number": "5566778899",
     "education": "12th Pass",
     "gender": "Male",
-    "age": 22
+    "age": 40
+  },
+  {
+    "name": "Emma Garcia",
+    "email": "emma.garcia@example.com",
+    "image": "https://i.ibb.co/DLMXt8c/review-One.jpg",
+    "experience_years": 4,
+    "location": "Madrid",
+    "current_salary": 8,
+    "experience": [
+      {
+        "title": "Senior Backend Developer",
+        "company": "CodeMasters",
+        "department": "Engineering",
+        "industry": "Technology",
+        "job_role": "Backend Developer",
+        "job_city": "Madrid",
+        "start_date": "2018-03-01",
+        "end_date": "Present",
+        "job_type": "Full Time",
+        "pay_type": "€80000"
+      }
+    ],
+    "skills": [
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "RESTful API Development"
+    ],
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "cv_link": "true",
+    "job_preferences": {
+      "employment_type": [
+        "Full Time"
+      ],
+      "preferred_workplace": [
+        "Work From Office"
+      ],
+      "preferred_shift": [
+        "Day Shift"
+      ]
+    },
+    "preferred_job_title": "Backend Developer",
+    "phone_number": "9900112233",
+    "education": "Graduation",
+    "gender": "Female",
+    "age": 31
+  },
+  {
+    "name": "Liam Wilson",
+    "email": "liam.wilson@example.com",
+    "image": "https://i.ibb.co/0qrFwS3/pexels-andrea-piacquadio-3771120.jpg",
+    "experience_years": 7,
+    "location": "Toronto",
+    "current_salary": 6,
+    "experience": [
+      {
+        "title": "Senior Software Engineer",
+        "company": "InnovateTech",
+        "department": "Engineering",
+        "industry": "Technology",
+        "job_role": "Full Stack Developer",
+        "job_city": "Toronto",
+        "start_date": "2015-02-01",
+        "end_date": "Present",
+        "job_type": "Full Time",
+        "pay_type": "$60000"
+      }
+    ],
+    "skills": [
+      "JavaScript",
+      "React",
+      "Angular",
+      "Node.js"
+    ],
+    "languages": [
+      "English",
+      "French"
+    ],
+    "cv_link": "true",
+    "job_preferences": {
+      "employment_type": [
+        "Full Time"
+      ],
+      "preferred_workplace": [
+        "Work From Office"
+      ],
+      "preferred_shift": [
+        "Night Shift"
+      ]
+    },
+    "preferred_job_title": "Full Stack Developer",
+    "phone_number": "7788990011",
+    "education": "Post Graduation",
+    "gender": "Male",
+    "age": 36
+  },
+  {
+    "name": "Olivia Martinez",
+    "email": "olivia.martinez@example.com",
+    "image": "https://i.ibb.co/DVnTrbG/pexels-ahmed-18923454.jpg",
+    "experience_years": 5,
+    "location": "Los Angeles",
+    "current_salary": 9,
+    "experience": [
+      {
+        "title": "Senior UX/UI Designer",
+        "company": "PixelPerfection",
+        "department": "Design",
+        "industry": "Design",
+        "job_role": "UX/UI Designer",
+        "job_city": "Los Angeles",
+        "start_date": "2017-08-01",
+        "end_date": "Present",
+        "job_type": "Full Time",
+        "pay_type": "$90000"
+      }
+    ],
+    "skills": [
+      "UI/UX Design",
+      "Adobe XD",
+      "Sketch",
+      "Figma"
+    ],
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "cv_link": "true",
+    "job_preferences": {
+      "employment_type": [
+        "Full Time"
+      ],
+      "preferred_workplace": [
+        "Work From Office"
+      ],
+      "preferred_shift": [
+        "Day Shift"
+      ]
+    },
+    "preferred_job_title": "UX/UI Designer",
+    "phone_number": "1122334455",
+    "education": "Diploma",
+    "gender": "Female",
+    "age": 30
+  },
+  {
+    "name": "Noah Taylor",
+    "email": "noah.taylor@example.com",
+    "image": "https://i.ibb.co/KhcwF7T/edward-cisneros-H6wpor9mjs-unsplash.jpg",
+    "experience_years": 3,
+    "location": "Sydney",
+    "current_salary": 7,
+    "experience": [
+      {
+        "title": "Software Engineer",
+        "company": "TechBuilders",
+        "department": "Engineering",
+        "industry": "Technology",
+        "job_role": "Full Stack Developer",
+        "job_city": "Sydney",
+        "start_date": "2019-10-01",
+        "end_date": "Present",
+        "job_type": "Full Time",
+        "pay_type": "$75000"
+      }
+    ],
+    "skills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "MongoDB"
+    ],
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "cv_link": "true",
+    "job_preferences": {
+      "employment_type": [
+        "Full Time"
+      ],
+      "preferred_workplace": [
+        "Work From Home"
+      ],
+      "preferred_shift": [
+        "Night Shift"
+      ]
+    },
+    "preferred_job_title": "Full Stack Developer",
+    "phone_number": "3344556677",
+    "education": "ITI",
+    "gender": "Male",
+    "age": 27
+  },
+  {
+    "name": "Ava Rodriguez",
+    "email": "ava.rodriguez@example.com",
+    "image": "https://i.ibb.co/5r9K03y/usman-yousaf-PVjf-Lss3b-c-unsplash.jpg",
+    "experience_years": 4,
+    "location": "Berlin",
+    "current_salary": 8,
+    "experience": [
+      {
+        "title": "Senior Frontend Developer",
+        "company": "CodeCrafters",
+        "department": "Engineering",
+        "industry": "Technology",
+        "job_role": "Frontend Developer",
+        "job_city": "Berlin",
+        "start_date": "2018-02-01",
+        "end_date": "Present",
+        "job_type": "Full Time",
+        "pay_type": "€80000"
+      }
+    ],
+    "skills": [
+      "React",
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "languages": [
+      "English",
+      "German"
+    ],
+    "cv_link": "true",
+    "job_preferences": {
+      "employment_type": [
+        "Full Time"
+      ],
+      "preferred_workplace": [
+        "Work From Office"
+      ],
+      "preferred_shift": [
+        "Day Shift"
+      ]
+    },
+    "preferred_job_title": "Frontend Developer",
+    "phone_number": "5566778899",
+    "education": "Post Graduation",
+    "gender": "Female",
+    "age": 29
   }
+]

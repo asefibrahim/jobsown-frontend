@@ -1,10 +1,11 @@
 import CandidateCard from "./CandidateCard";
+import ContactCard from "./ContactCard";
 import EducationCard from "./EducationCard";
 import LanguageCard from "./LanguageCard";
 import SkillsCard from "./SkillsCard";
 import WorkExperiences from "./WorkExperiences";
 
-const Overview = ({candidate, languages, education, skills}) => {
+const Overview = ({candidate, languages, education, skills, experiences, phoneNumber, email}) => {
     return (
         <div>
             <CandidateCard 
@@ -18,7 +19,8 @@ const Overview = ({candidate, languages, education, skills}) => {
             />
             <EducationCard education={education} />
             <SkillsCard skills={skills} />
-            <WorkExperiences />
+            <WorkExperiences experiences={experiences} />
+            <ContactCard phoneNumber={phoneNumber} email={email} />
         </div>
     );
 };

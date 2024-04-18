@@ -61,15 +61,20 @@ const CandidateCard = ({candidate, border, background, width, viewNum}) => {
           <div className="text-gray-400 p-2">Pay Type</div>
         </div>
         <div className="col-span-8 p-2">
-          <div className="font-semibold p-2">{experience?.company}</div>
-          <div className="font-semibold p-2">{experience?.job_title}</div>
-          <div className="font-semibold p-2">{experience?.job_role}</div>
-          <div className="font-semibold p-2">{experience?.job_type}</div>
-          <div className="font-semibold p-2">{job_preferences?.preferred_workplace}</div>
-          <div className="font-semibold p-2">{experience?.job_city}</div>
-          <div className="font-semibold p-2">
-          {experience?.pay_type}
-          </div>
+          {
+            experience?.length > 0 && 
+            (<>
+            <div className="font-semibold p-2">{experience[0]?.company}</div>
+            <div className="font-semibold p-2">{experience[0]?.title}</div>
+            <div className="font-semibold p-2">{experience[0]?.job_role}</div>
+            <div className="font-semibold p-2">{experience[0]?.job_type}</div>
+            <div className="font-semibold p-2">{job_preferences?.preferred_workplace}</div>
+            <div className="font-semibold p-2">{experience[0]?.job_city}</div>
+            <div className="font-semibold p-2">
+            {experience[0]?.pay_type} per month (Fixed only)
+            </div>
+            </>)
+          }
         </div>
       </div>
       <button style={{display: viewNum}} className="flex ml-20 bg-blue-800 text-white px-4 py-2 rounded-md mb-4">

@@ -49,7 +49,7 @@ const Form = () => {
         console.log(response.data);
         if (response.data.message) {
           Swal.fire(response.data.message);
-          navigate("/post-a-newjob");
+          navigate("/employee-dashboard/post-a-newjob");
         }
         // Handle the response here. For example, you can set state or redirect the user.
       })

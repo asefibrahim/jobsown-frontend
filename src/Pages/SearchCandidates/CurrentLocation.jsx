@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-const cityArry = ["London", "Los Angeles", "Sydney", "Berlin", "Toronto", "Madrid", "Singapore", "New Delhi", "Paris", "Miami"];
+const cityArry = ["London", "Los Angeles", "New York", "Chicago", "Sydney", "Berlin", "Toronto", "Madrid", "Singapore", "New Delhi", "Paris", "Miami", "San Francisco"];
 const CurrentLocation = ({  hireText, setCityOrLocation }) => {
   const [isOptionsVisible, setOptionsVisible] = useState(false);
   const [selectedBy, setSelectedBy] = useState("Search current city/area");

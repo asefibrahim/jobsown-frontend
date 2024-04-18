@@ -1,6 +1,7 @@
 import jobDetails from "../../assets/JobDetails.png"
 
 const WorkExperiences = ({experiences}) => {
+    console.log("Data get from experiences",experiences);
     return (
         <div className="w-full">
             <div className="bg-[#F3F3F3] my-5 p-9 rounded-lg">

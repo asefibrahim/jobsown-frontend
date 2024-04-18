@@ -31,8 +31,8 @@ const Job = ({ job, setJobs, jobs }) => {
 
   return (
     <div
-      className="border border-gray-300 rounded p-4 mx-5 my-2 shadow-lg"
-      style={{ width: "1030px", height: "132px", borderRadius: "12px" }}
+      className="border border-gray-300 rounded p-4 mx-0 my-2 shadow-lg"
+      style={{ width: "auto", height: "132px", borderRadius: "12px" }}
     >
       <div className="flex justify-between">
         <div className="mt-4 mb-4">

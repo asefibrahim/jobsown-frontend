@@ -1,17 +1,16 @@
+import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { IoMdAdd } from "react-icons/io";
-import { MdKeyboardArrowRight } from "react-icons/md";
-import ExperienceCard from "../../../Components/ViewProfile/CandidateProfile/ExperienceCard";
-import Skills from "../../../Components/ViewProfile/CandidateProfile/Skills";
-import Languages from "../../../Components/ViewProfile/CandidateProfile/Languages";
-import Resume from "../../../Components/ViewProfile/CandidateProfile/Resume";
-import OtherDetails from "../../../Components/ViewProfile/CandidateProfile/OtherDetails";
-import Documents from "../../../Components/ViewProfile/CandidateProfile/Documents";
-import AddExperienceModal from "../../../Components/ViewProfile/CandidateProfile/AddExperienceModal";
-import { AuthContext } from "../../../Provider/AuthProvider";
-import JobPreference from "../../../Components/ViewProfile/CandidateProfile/JobPreference";
-import axios from "axios";
 import Swal from "sweetalert2";
+import AddExperienceModal from "../../../Components/ViewProfile/CandidateProfile/AddExperienceModal";
+import Documents from "../../../Components/ViewProfile/CandidateProfile/Documents";
+import ExperienceCard from "../../../Components/ViewProfile/CandidateProfile/ExperienceCard";
+import JobPreference from "../../../Components/ViewProfile/CandidateProfile/JobPreference";
+import Languages from "../../../Components/ViewProfile/CandidateProfile/Languages";
+import OtherDetails from "../../../Components/ViewProfile/CandidateProfile/OtherDetails";
+import Resume from "../../../Components/ViewProfile/CandidateProfile/Resume";
+import Skills from "../../../Components/ViewProfile/CandidateProfile/Skills";
+import { AuthContext } from "../../../Provider/AuthProvider";
 const eduationArry = ["10th Pass", "12th Pass", "Diploma", "ITI", "Graduate", "Post Graduate"];
 const RightSide = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -195,7 +194,7 @@ const handleSubmitInformation = () => {
         <div className="pt-8">
           <div className="bg-gray-100 px-8 py-8 flex justify-between items-center rounded-md">
           <h5 className="text-lg font-medium text-gray-800">Gender</h5>
-          <select onChange={(e) => setGender(e.target.value)} value={userInfo?.gender || ""} className="w-60 p-2 text-base font-semibold outline-none placeholder:text-sm" name="" id="">
+          <select onChange={(e) => setGender(e.target.value)} defaultValue={userInfo?.gender || ""} className="w-60 p-2 text-base font-semibold outline-none placeholder:text-sm" name="" id="">
             <option value="">Set Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
@@ -205,7 +204,7 @@ const handleSubmitInformation = () => {
         <div className="pt-8 pb-8">
           <div className="bg-gray-100 px-8 py-8 flex justify-between items-center rounded-md">
           <h5 className="text-lg font-medium text-gray-800">Highest Education</h5>
-          <select onChange={(e) => setHightestEducation(e.target.value)} value={userInfo?.education || ""} className="w-60 p-2 text-base font-semibold outline-none placeholder:text-sm" name="" id="">
+          <select onChange={(e) => setHightestEducation(e.target.value)} defaultValue={userInfo?.education || ""} className="w-60 p-2 text-base font-semibold outline-none placeholder:text-sm" name="" id="">
             <option value="">Hightest Education</option>
             {
               eduationArry?.map(edu => (

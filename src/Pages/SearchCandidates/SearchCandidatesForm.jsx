@@ -15,7 +15,7 @@ const SearchCandidatesForm = () => {
                 </label>
             </div>
             <div className="mt-7">
-                <form action="/search-candidate">
+                <form action="/employee-dashboard/search-candidate">
                     <div className="flex flex-col">
                         <label className="font-semibold" htmlFor="">Keywords <span className="text-red-500">*</span></label>
                         <input type="text" className="bg-[#F3F3F3] px-7 py-2.5 mt-2 rounded-lg outline-none" name="keyword" id="" placeholder="Enter keyword such as job title, skills,etc" required />

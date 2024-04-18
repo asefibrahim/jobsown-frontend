@@ -2,19 +2,19 @@ import React, { useEffect, useState } from "react";
 import { HiDownload } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
 import axios from "../../api/axios";
+import Age from "./Age";
 import AnnualSalary from "./AnnualSalary";
 import CandidateCard from "./CandidateCard";
 import CurrentLocation from "./CurrentLocation";
 import DropRecords from "./DropRecords";
+import Education from "./Education";
 import ExcludeKeywords from "./ExcludeKeywords";
 import Experience from "./Experience";
+import Gender from "./Gender";
 import Industries from "./Industries";
+import Language from "./Language";
 import "./SearchCandidates.css";
 import Sidebar from "./Sidebar";
-import Education from "./Education";
-import Gender from "./Gender";
-import Age from "./Age";
-import Language from "./Language";
 
 const SearchCandidates = () => {
   // get search params data from url
@@ -35,6 +35,7 @@ const SearchCandidates = () => {
   const [selectedWeeks, setSelectedWeeks] = useState(2);
   const [entries, setEntries] = useState(25);
   const [candidates, setCandidates] = useState([]);
+  const [isLoading, setIsLaoding] = useState(false);
 
   // handle cv attached
   const [haveCv, setHaveCv] = useState(null);
@@ -90,6 +91,7 @@ const SearchCandidates = () => {
   // get candidates
 
   useEffect(() => {
+    setIsLaoding(true);
     axios.get("http://localhost:5000/api/candidates", {
       params: {
         keyword: searchKeyword,
@@ -110,9 +112,11 @@ const SearchCandidates = () => {
     .then(res => {
       console.log(res.data);
       setCandidates(res.data);
+      setIsLaoding(false)
     })
     .catch(err => {
       console.log(err);
+      setIsLaoding(false)
     })
   }, [haveCv, cityOrLocation, searchKeyword, searchMinExperience, searchMaxExperience, searchIndustries, searchMinSarlary, searchMaxSarlary, searchEducation, gender, minAge, maxAge, searchLanguage ])
 
@@ -127,14 +131,13 @@ const SearchCandidates = () => {
 
   return (
     <div>
-      <Sidebar />
-      <div className="grid grid-cols-12 max-w-7xl mx-auto">
-        <div className="col-span-3 p-4">
+      <div className="grid grid-cols-12 max-w-7xl mx-auto mt-8">
+        <div className="col-span-3 p-4" >
           <div className="text-2xl font-semibold mt-1 mb-2">
             Search Candidates
           </div>
 
-          <div>
+          <div className="border-[1px] border-black rounded-lg p-4">
             <div className="flex justify-between p-4 items-center custom-border-bottom">
               <div className="text-2xl font-semibold text-blue-800">
                 Filters
@@ -287,15 +290,22 @@ const SearchCandidates = () => {
             </button>
           </div>
           {
-            candidates?.map(candidate => (
+            isLoading && <div className="w-full min-h-80 flex justify-center items-center"><span className="loading loading-spinner loading-lg"></span></div>
+          }
+          {
+            candidates?.length > 0 && !isLoading && candidates?.map(candidate => (
               <CandidateCard
                candidate={candidate}
-               width={"95%"}
+               width={"100%"}
                border={"1px solid black"}
                viewNum={"block"}
                 />
             ))
           }
+          {
+            !isLoading && candidates?.length === 0 && <div className="flex justify-center items-center min-h-72 text-lg font-medium ">Your search result is empty</div>
+          }
+          
         </div>
       </div>
     </div>

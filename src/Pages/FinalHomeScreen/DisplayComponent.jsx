@@ -7,7 +7,7 @@ const DisplayComponent = () => {
     <div
       className="lg:flex flex-col items-center justify-center absolute shadow-lg rounded-lg p-8 bg-gray-100 my-3 mx-5"
       style={{
-        width: "990px",
+        width: "100%",
         height: "500px",
         borderRadius: "20px",
       }}

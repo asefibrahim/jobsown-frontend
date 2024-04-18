@@ -192,7 +192,7 @@ const SignUp = () => {
                 console.log(responseData);
 
                 if (responseData.insertedId) {
-                  navigate("/post-a-newjob");
+                  navigate("/employee-dashboard/post-a-newjob");
                 }
               });
           } else {

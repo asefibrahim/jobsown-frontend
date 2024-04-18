@@ -6,7 +6,7 @@ import React from "react";
 const CandidateProfile = () => {
   return (
     <div className="max-w-7xl mx-auto">
-      <hr className="border mt-12 mb-12" />
+      <hr className="border mt-2 mb-12" />
 
       <div className="grid lg:grid-cols-3 gap-12">
         <LeftSide />

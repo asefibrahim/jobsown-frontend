@@ -8,13 +8,13 @@ import DisplayComponent from "./DisplayComponent";
 const FinalHomeScreen = () => {
   return (
     <>
-        <div className="my-4 w-full">
+        <div className="my-4 w-full ml-10">
           <div className="flex ms-6 mb-6 mt-12 items-center justify-between ">
             <SearchBar />
 
             <NewJobButton />
           </div>
-          <DisplayComponent />
+          <div className="w-full relative"><DisplayComponent /></div>
         </div>
     </>
   );

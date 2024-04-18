@@ -6,17 +6,14 @@ const ProfileMenu = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="my-2 w-full lg:flex">
-        <div className=" hidden lg:w-1/5 p-4 lg:block">
-          <Sidebar />
-        </div>
-        <div className="lg:w-4/5 p-4 mx-8">
-          <div className="text-3xl font-medium  mb-6">Profile</div>
+    <div className="ml-14 w-full">
+      <div className="my-2 w-full">
+        <div className="mt-10">
+          <div className="text-2xl font-semibold mb-4">Profile</div>
           <div className="text-xl  font-medium mb-4">Basic Details</div>
 
-          <div className="lg:flex items-center gap-4 ">
-            <div className="mb-4 mx-4">
+          <div className="lg:flex items-center">
+            <div className="mb-4">
               <label htmlFor="name" className="block text-sm font-bold mb-2">
                 Name*
               </label>
@@ -44,7 +41,7 @@ const ProfileMenu = () => {
               />
             </div>
           </div>
-          <div className="mb-4 mx-4">
+          <div className="mb-4">
             <label htmlFor="phone" className="block text-sm font-bold mb-2">
               Phone*
             </label>
@@ -56,10 +53,10 @@ const ProfileMenu = () => {
               required
             />
           </div>
-          <div className="text-xl font-medium  mb-4">GST Details</div>
+          <div className="text-xl font-medium mt-5 mb-2">GST Details</div>
 
           <div className=" items-center gap-8">
-            <div className="mb-4 mx-4">
+            <div className="mb-4">
               <input
                 type="text"
                 id="gst"
@@ -72,7 +69,7 @@ const ProfileMenu = () => {
                 Verify
               </button>
             </div>
-            <div className=" mb-4 mx-4 ">
+            <div className=" mb-4">
               <input
                 type="text"
                 id="pan"

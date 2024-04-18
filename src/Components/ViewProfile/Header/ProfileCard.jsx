@@ -108,7 +108,7 @@ const ProfileDropdown = ({ user, logOut }) => {
           <hr className="border-t border-gray-300 my-4" />
 
           <div className="flex flex-col space-y-2">
-            <Link to={"/view-employee-profile"}>
+            <Link to={"/employee-dashboard/view-employee-profile"}>
               {" "}
               <button className="flex items-center text-black">
                 <img src={view_profile} alt="Icon" className="h-4 w-4 mr-1" />

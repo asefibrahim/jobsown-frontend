@@ -14,7 +14,7 @@ const Language = ({ hireText, setSearchLanguage }) => {
   };
 
   return (
-    <div className="p-4 custom-border-bottom cursor-pointer ">
+    <div className="p-4 cursor-pointer ">
       <div
         className="font-semibold text-blue-800 py-2 flex justify-between"
         onClick={toggleOptions}

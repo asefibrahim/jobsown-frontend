@@ -62,7 +62,6 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-
       //   if (currentUser) {
       //     fetch("https://illusion-school-server.vercel.app/jwt", {
       //       method: "POST",

@@ -18,9 +18,10 @@ const AllJobs = () => {
       setError("");
       try {
         const response = await axios.get(
-          `/savedJobsFromEmployee?email=${user?.email}`
+          `http://localhost:5000/api/savedJobsFromEmployee?email=${user?.email}`
         );
         setJobs(response.data);
+        console.log("Lets match",response.data);
       } catch (err) {
         console.error("Error fetching jobs: ", err);
         setError("Failed to fetch jobs. Please try again.");
@@ -36,13 +37,13 @@ const AllJobs = () => {
 
   return (
     <>
-      <div className="w-full">
+      <div className="w-full ml-12">
 
         <div className="flex flex-col">
           <div className="flex items-center justify-center">
-            <div className="text-2xl font-bold ml-6">All Jobs</div>
-            <div className="ml-auto mx-6 my-6">
-              <Link to={"/post-a-newjob"}>
+            <div className="text-2xl font-bold">All Jobs</div>
+            <div className="ml-auto mx-0 my-6">
+              <Link to={"/employee-dashboard/post-a-newjob"}>
                 <NewJobButton />
               </Link>
             </div>
@@ -50,8 +51,8 @@ const AllJobs = () => {
 
           {loading ? (
             <div>Loading...</div>
-          ) : error ? (
-            <div>{error}</div>
+          ) : jobs?.length === 0 ? (
+            <div className="min-h-60 flex justify-center items-center text-lg font-medium border rounded-lg">You don't have posted any jobs yet!</div>
           ) : (
             <div>
               {jobs?.map((job, index) => (

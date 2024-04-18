@@ -70,10 +70,6 @@ const router = createBrowserRouter([
         element: <EmployeeLanding />,
       },
       {
-        path: "/view-employee-profile",
-        element: <ProfileMenu />,
-      },
-      {
         path: "/bycoins",
         element: <BuyCoins />,
       },
@@ -100,10 +96,6 @@ const router = createBrowserRouter([
       {
         path: "/blogs/:id",
         element: <BlogDetail />,
-      },
-      {
-        path: "search-candidate",
-        element: <SearchCandidates />,
       },
       {
         path: "candidate-details/:id",
@@ -142,6 +134,14 @@ const router = createBrowserRouter([
       {
         path: "alljobs",
         element: <AllJobs />,
+      },
+      {
+        path: "view-employee-profile",
+        element: <ProfileMenu />,
+      },
+      {
+        path: "search-candidate",
+        element: <SearchCandidates />,
       },
     ],
   },

@@ -13,14 +13,14 @@ function Navbar() {
   };
 
   return (
-    <div className="tracking-wide max-w-[1300px] mx-auto  ">
+    <div className="tracking-wide max-w-[1300px] mx-auto py-4">
       <div className="NavBox">
         <Link to={"/view-profile"}>
           <div className="NavLogo">
             <img
               src={WebLogo}
               alt="WebLogo"
-              className="NavLogoImg lg:w-full w-24  "
+              className="NavLogoImg lg:w-3/4 w-24  "
             />
           </div>
         </Link>
