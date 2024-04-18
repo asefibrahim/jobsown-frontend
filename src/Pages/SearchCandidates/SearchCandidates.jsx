@@ -14,7 +14,6 @@ import Gender from "./Gender";
 import Industries from "./Industries";
 import Language from "./Language";
 import "./SearchCandidates.css";
-import Sidebar from "./Sidebar";
 
 const SearchCandidates = () => {
   // get search params data from url

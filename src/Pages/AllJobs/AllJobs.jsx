@@ -1,10 +1,9 @@
-import React, { useContext, useState, useEffect } from "react"; // Import useEffect // Ensure axios is imported
-import Sidebar from "../FinalHomeScreen/SideBar";
-import NewJobButton from "./NewJobButton";
-import Job from "./Job";
+import React, { useContext, useEffect, useState } from "react"; // Import useEffect // Ensure axios is imported
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "../../api/axios";
+import Job from "./Job";
+import NewJobButton from "./NewJobButton";
 
 const AllJobs = () => {
   const { user } = useContext(AuthContext);

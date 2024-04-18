@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../FinalHomeScreen/Header";
 import Sidebar from "../FinalHomeScreen/SideBar";
 import BalanceIcon from "../../assets/balanceIcon.png";
 import Table from "../../Components/Wallet/Table";
 const ManageCoins = () => {
+  const [menuSmall, setMenuSmall] = useState(false);
   const purchases = [
     {
       sno: "1",
@@ -38,7 +39,7 @@ const ManageCoins = () => {
       <Header />
 
       <div className="flex  gap-8 ">
-        <Sidebar />
+      <Sidebar menuSmall={menuSmall} setMenuSmall={setMenuSmall}></Sidebar>
         <div className="mt-12   mr-8 mx-auto w-[90%]">
           <h1 className="text-3xl font-medium text-gray-800 mb-5">
             Manage coins
