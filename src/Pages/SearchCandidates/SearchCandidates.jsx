@@ -91,7 +91,7 @@ const SearchCandidates = () => {
 
   useEffect(() => {
     setIsLaoding(true);
-    axios.get("http://localhost:5000/api/candidates", {
+    axios.get("https://jobsown-server.vercel.app/api/candidates", {
       params: {
         keyword: searchKeyword,
         currentCity: cityOrLocation,

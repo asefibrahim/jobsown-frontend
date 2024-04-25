@@ -3,14 +3,14 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BlogCard from "../../Components/BlogPage/BlogCard";
 import axios from "../../api/axios";
-import "./BlogPage.css";
-import blogBanner from "../../assets/blog.jpg";
 import avater from "../../assets/avater.png";
+import blogBanner from "../../assets/blog.jpg";
+import "./BlogPage.css";
 const BlogPage = () => {
   const [blogsData, setBlogsData] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/blogs");
+      const response = await axios.get("https://jobsown-server.vercel.app/api/blogs");
       setBlogsData(response.data);
       console.log(response.data);
     } catch (error) {
