@@ -10,7 +10,7 @@ const BlogDetail = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/blogs/${id}`)
+      .get(`https://jobsown-server.vercel.app/api/blogs/${id}`)
       .then((res) => {
         console.log(res.data);
         setBlogInfo(res.data);

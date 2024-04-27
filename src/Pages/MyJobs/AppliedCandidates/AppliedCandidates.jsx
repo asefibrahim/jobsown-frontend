@@ -11,12 +11,12 @@ const AppliedCandidates = () => {
   const [candidateData, setCandidateData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    setIsLoading(true)
+    setIsLoading(true);
     axios
-      .get(`http://localhost:5000/api/applied-candidates/${id}`)
+      .get(`https://jobsown-server.vercel.app/api/applied-candidates/${id}`)
       .then((res) => {
         setCandidates(res?.data);
-        setIsLoading(false)
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err?.message);
@@ -24,7 +24,7 @@ const AppliedCandidates = () => {
   }, []);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/user-data/${candidateEmail}`)
+      .get(`https://jobsown-server.vercel.app/api/user-data/${candidateEmail}`)
       .then((res) => {
         setCandidateData(res?.data);
       })
@@ -34,7 +34,9 @@ const AppliedCandidates = () => {
   }, [candidateEmail]);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/candidate-info/${candidateEmail}`)
+      .get(
+        `https://jobsown-server.vercel.app/api/candidate-info/${candidateEmail}`
+      )
       .then((res) => {
         setCandidateInfo(res?.data);
       })
@@ -59,7 +61,7 @@ const AppliedCandidates = () => {
                 <th>Action</th>
               </tr>
             </thead>
-              <tbody>
+            <tbody>
               {candidates?.map((candidate) => (
                 <tr key={candidate?._id} className="">
                   <th className="text-base font-normal">{candidate?.name}</th>
@@ -71,12 +73,11 @@ const AppliedCandidates = () => {
                   </td>
                   <td>
                     <button
-                      onClick={() =>{
+                      onClick={() => {
                         setCandidateEmail("");
                         document.getElementById("my_modal_2").showModal();
-                        setCandidateEmail(candidate?.email)
-                      }
-                      }
+                        setCandidateEmail(candidate?.email);
+                      }}
                       className="bg-[#0C35E9] text-white px-4 py-2 rounded-md font-medium"
                     >
                       View Profile
@@ -86,12 +87,18 @@ const AppliedCandidates = () => {
               ))}
             </tbody>
           </table>
-          {
-            isLoading && <div className="h-56 flex justify-center items-center w-full"><span className="loading loading-spinner loading-lg"></span></div>
-          }
-          {
-            !isLoading && candidates.length === 0 && <div className="h-56 flex justify-center items-center w-full"><span className="">There has no applicant applied for the job</span></div>
-          }
+          {isLoading && (
+            <div className="h-56 flex justify-center items-center w-full">
+              <span className="loading loading-spinner loading-lg"></span>
+            </div>
+          )}
+          {!isLoading && candidates.length === 0 && (
+            <div className="h-56 flex justify-center items-center w-full">
+              <span className="">
+                There has no applicant applied for the job
+              </span>
+            </div>
+          )}
         </div>
       </div>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
@@ -100,97 +107,168 @@ const AppliedCandidates = () => {
           <div>
             <img className="w-24 h-24" src={candidateImg} alt="" />
             <div className="flex mt-4 border-b pb-1">
-            <p className="mt-2 flex-1"><span className="font-medium">Age:</span> {candidateInfo?.age || 'Not set'}</p>
-            <p className="mt-2 flex-1"><span className="font-medium">Gender:</span> {candidateInfo?.gender || 'Not set'}</p>
+              <p className="mt-2 flex-1">
+                <span className="font-medium">Age:</span>{" "}
+                {candidateInfo?.age || "Not set"}
+              </p>
+              <p className="mt-2 flex-1">
+                <span className="font-medium">Gender:</span>{" "}
+                {candidateInfo?.gender || "Not set"}
+              </p>
             </div>
             <div className="flex border-b pb-1">
-            <p className="mt-2 flex-1"><span className="font-medium">Name:</span> {candidateInfo?.name || candidateData?.name}</p>
-            <p className="mt-2 flex-1"><span className="font-medium">Email:</span> {candidateInfo?.email || candidateData?.email || 'Not set'}</p>
+              <p className="mt-2 flex-1">
+                <span className="font-medium">Name:</span>{" "}
+                {candidateInfo?.name || candidateData?.name}
+              </p>
+              <p className="mt-2 flex-1">
+                <span className="font-medium">Email:</span>{" "}
+                {candidateInfo?.email || candidateData?.email || "Not set"}
+              </p>
             </div>
             <div className="flex border-b pb-1">
-            <p className="mt-2 flex-1"><span className="font-medium">Education:</span> {candidateInfo?.education || 'Not set'}</p>
-            <p className="mt-2 flex-1"><span className="font-medium">Location:</span> {candidateInfo?.location || 'Not set'}</p>
+              <p className="mt-2 flex-1">
+                <span className="font-medium">Education:</span>{" "}
+                {candidateInfo?.education || "Not set"}
+              </p>
+              <p className="mt-2 flex-1">
+                <span className="font-medium">Location:</span>{" "}
+                {candidateInfo?.location || "Not set"}
+              </p>
             </div>
-            <div className="flex"> 
-            <p className="mt-2  border-b pb-1 flex-1"><span className="font-medium">Total Experience Years:</span> {candidateInfo?.experience_years || 'Not set'}</p>
-            <p className="mt-2  border-b pb-1 flex-1"><span className="font-medium">Phone:</span> {candidateInfo?.phone_number || 'Not set'}</p>
+            <div className="flex">
+              <p className="mt-2  border-b pb-1 flex-1">
+                <span className="font-medium">Total Experience Years:</span>{" "}
+                {candidateInfo?.experience_years || "Not set"}
+              </p>
+              <p className="mt-2  border-b pb-1 flex-1">
+                <span className="font-medium">Phone:</span>{" "}
+                {candidateInfo?.phone_number || "Not set"}
+              </p>
             </div>
             <div className="mt-4">
               <h3 className="text-xl font-semibold">Experrience</h3>
-              {
-                candidateInfo?.experience?.length > 0 ? candidateInfo?.experience?.map((expe, indx) => (
+              {candidateInfo?.experience?.length > 0 ? (
+                candidateInfo?.experience?.map((expe, indx) => (
                   <div className="mb-4">
-                  <div className="flex border-b pb-1">
-                  <p className="mt-2 flex-1"><span className="font-medium">0{indx + 1}. Company Name:</span> {expe?.company || 'Not set'}</p>
-                  <p className="mt-2 flex-1"><span className="font-medium">Title:</span> {expe?.title || 'Not set'}</p>
+                    <div className="flex border-b pb-1">
+                      <p className="mt-2 flex-1">
+                        <span className="font-medium">
+                          0{indx + 1}. Company Name:
+                        </span>{" "}
+                        {expe?.company || "Not set"}
+                      </p>
+                      <p className="mt-2 flex-1">
+                        <span className="font-medium">Title:</span>{" "}
+                        {expe?.title || "Not set"}
+                      </p>
+                    </div>
+                    <div className="flex border-b pb-1">
+                      <p className="mt-2 flex-1">
+                        <span className="font-medium">Department:</span>{" "}
+                        {expe?.department || "Not set"}
+                      </p>
+                      <p className="mt-2 flex-1">
+                        <span className="font-medium">Industry:</span>{" "}
+                        {expe?.industry || "Not set"}
+                      </p>
+                    </div>
+                    <div className="flex border-b pb-1">
+                      <p className="mt-2 flex-1">
+                        <span className="font-medium">Job Role:</span>{" "}
+                        {expe?.job_role || "Not set"}
+                      </p>
+                      <p className="mt-2 flex-1">
+                        <span className="font-medium">Start Date:</span>{" "}
+                        {expe?.start_date || "Not set"}
+                      </p>
+                    </div>
+                    <div className="flex border-b pb-1">
+                      <p className="mt-2 flex-1">
+                        <span className="font-medium">End Date:</span>{" "}
+                        {expe?.end_date || "Not set"}
+                      </p>
+                      <p className="mt-2 flex-1">
+                        <span className="font-medium">Job City:</span>{" "}
+                        {expe?.job_city || "Not set"}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex border-b pb-1">
-                  <p className="mt-2 flex-1"><span className="font-medium">Department:</span> {expe?.department || 'Not set'}</p>
-                  <p className="mt-2 flex-1"><span className="font-medium">Industry:</span> {expe?.industry || 'Not set'}</p>
-                  </div>
-                  <div className="flex border-b pb-1">
-                  <p className="mt-2 flex-1"><span className="font-medium">Job Role:</span> {expe?.job_role || 'Not set'}</p>
-                  <p className="mt-2 flex-1"><span className="font-medium">Start Date:</span> {expe?.start_date || 'Not set'}</p>
-                  </div>
-                  <div className="flex border-b pb-1">
-                  <p className="mt-2 flex-1"><span className="font-medium">End Date:</span> {expe?.end_date || 'Not set'}</p>
-                  <p className="mt-2 flex-1"><span className="font-medium">Job City:</span> {expe?.job_city || 'Not set'}</p>
-                  </div>
-                  </div>
-                )) : <p className="mt-2 text-gray-500 pb-5">Not added yet</p>
-              }
+                ))
+              ) : (
+                <p className="mt-2 text-gray-500 pb-5">Not added yet</p>
+              )}
             </div>
             <div className="mb-4">
-            <h3 className="text-xl font-semibold">Languages</h3>
+              <h3 className="text-xl font-semibold">Languages</h3>
               <div className="flex gap-5 mt-2">
-              {
-                candidateInfo?.languages?.length > 0 ? candidateInfo?.languages?.map(lan => (
-                  <p className="bg-gray-200 px-3 py-1.5 rounded-md">{lan}</p>
-                )) : <p className="text-gray-500">Not added yet</p>
-              }
+                {candidateInfo?.languages?.length > 0 ? (
+                  candidateInfo?.languages?.map((lan) => (
+                    <p className="bg-gray-200 px-3 py-1.5 rounded-md">{lan}</p>
+                  ))
+                ) : (
+                  <p className="text-gray-500">Not added yet</p>
+                )}
               </div>
             </div>
             <div className="mb-4">
-            <h3 className="text-xl font-semibold">Skills</h3>
+              <h3 className="text-xl font-semibold">Skills</h3>
               <div className="flex gap-5 mt-2">
-              {
-                candidateInfo?.skills?.length > 0 ? candidateInfo?.skills?.map(lan => (
-                  <p className="bg-gray-200 px-3 py-1.5 rounded-md">{lan}</p>
-                )) : <p className="text-gray-500">Not added yet</p>
-              }
+                {candidateInfo?.skills?.length > 0 ? (
+                  candidateInfo?.skills?.map((lan) => (
+                    <p className="bg-gray-200 px-3 py-1.5 rounded-md">{lan}</p>
+                  ))
+                ) : (
+                  <p className="text-gray-500">Not added yet</p>
+                )}
               </div>
             </div>
             <div className="mb-4">
-            <h3 className="text-xl font-semibold">Job Preferences</h3>
+              <h3 className="text-xl font-semibold">Job Preferences</h3>
               <div className="flex items-center gap-5">
-              <h4 className="mt-2">Employeement Type: </h4>
-              <div className="flex mt-2">
-              {
-                candidateInfo?.job_preferences?.employment_type?.length > 0 ? candidateInfo?.job_preferences?.employment_type?.map(lan => (
-                  <p className="border px-3 py-1.5 rounded-md">{lan}</p>
-                )) : <p className="text-gray-500">Not added yet</p>
-              }
-              </div>
-              </div>
-              <div className="flex items-center gap-5 mt-2">
-              <h4 className="mt-2">Preferred Workplace: </h4>
-              <div className="flex mt-2">
-              {
-                candidateInfo?.job_preferences?.preferred_workplace?.length > 0 ? candidateInfo?.job_preferences?.preferred_workplace?.map(lan => (
-                  <p className="border px-3 py-1.5 rounded-md">{lan}</p>
-                )) : <p className="text-gray-500">Not added yet</p>
-              }
-              </div>
+                <h4 className="mt-2">Employeement Type: </h4>
+                <div className="flex mt-2">
+                  {candidateInfo?.job_preferences?.employment_type?.length >
+                  0 ? (
+                    candidateInfo?.job_preferences?.employment_type?.map(
+                      (lan) => (
+                        <p className="border px-3 py-1.5 rounded-md">{lan}</p>
+                      )
+                    )
+                  ) : (
+                    <p className="text-gray-500">Not added yet</p>
+                  )}
+                </div>
               </div>
               <div className="flex items-center gap-5 mt-2">
-              <h4 className="mt-2">Preferred Shift: </h4>
-              <div className="flex mt-2">
-              {
-                candidateInfo?.job_preferences?.preferred_shift?.length > 0 ? candidateInfo?.job_preferences?.preferred_shift?.map(lan => (
-                  <p className="px-3 py-1.5 rounded-md border">{lan}</p>
-                )) : <p className="text-gray-500">Not added yet</p>
-              }
+                <h4 className="mt-2">Preferred Workplace: </h4>
+                <div className="flex mt-2">
+                  {candidateInfo?.job_preferences?.preferred_workplace?.length >
+                  0 ? (
+                    candidateInfo?.job_preferences?.preferred_workplace?.map(
+                      (lan) => (
+                        <p className="border px-3 py-1.5 rounded-md">{lan}</p>
+                      )
+                    )
+                  ) : (
+                    <p className="text-gray-500">Not added yet</p>
+                  )}
+                </div>
               </div>
+              <div className="flex items-center gap-5 mt-2">
+                <h4 className="mt-2">Preferred Shift: </h4>
+                <div className="flex mt-2">
+                  {candidateInfo?.job_preferences?.preferred_shift?.length >
+                  0 ? (
+                    candidateInfo?.job_preferences?.preferred_shift?.map(
+                      (lan) => (
+                        <p className="px-3 py-1.5 rounded-md border">{lan}</p>
+                      )
+                    )
+                  ) : (
+                    <p className="text-gray-500">Not added yet</p>
+                  )}
+                </div>
               </div>
             </div>
           </div>

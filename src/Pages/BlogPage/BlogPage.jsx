@@ -10,7 +10,9 @@ const BlogPage = () => {
   const [blogsData, setBlogsData] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/blogs");
+      const response = await axios.get(
+        "https://jobsown-server.vercel.app/api/blogs"
+      );
       setBlogsData(response.data);
       console.log(response.data);
     } catch (error) {

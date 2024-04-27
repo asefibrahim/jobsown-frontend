@@ -17,7 +17,7 @@ const AllJobs = () => {
       setError("");
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/savedJobsFromEmployee?email=${user?.email}`
+          `https://jobsown-server.vercel.app/api/savedJobsFromEmployee?email=${user?.email}`
         );
         setJobs(response.data);
         console.log("Lets match", response.data);
@@ -48,7 +48,9 @@ const AllJobs = () => {
           </div>
 
           {loading ? (
-            <div className="w-full h-56 flex justify-center items-center"><span className="loading loading-spinner loading-lg"></span></div>
+            <div className="w-full h-56 flex justify-center items-center">
+              <span className="loading loading-spinner loading-lg"></span>
+            </div>
           ) : jobs?.length === 0 ? (
             <div className="min-h-60 flex justify-center items-center text-lg font-medium border rounded-lg">
               You don't have posted any jobs yet!

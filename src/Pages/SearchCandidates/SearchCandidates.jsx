@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { HiDownload } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "../../api/axios";
 import Age from "./Age";
 import AnnualSalary from "./AnnualSalary";
@@ -18,6 +19,7 @@ import "./SearchCandidates.css";
 const SearchCandidates = () => {
   // get search params data from url
   const urlLocation = useLocation();
+  const { user } = useContext(AuthContext);
   const searchParams = new URLSearchParams(urlLocation.search);
   const keyword = searchParams.get("keyword");
   const currentCity = searchParams.get("current_city");
@@ -69,6 +71,8 @@ const SearchCandidates = () => {
   // sort by language
   const [searchLanguage, setSearchLanguage] = useState("");
 
+  const [myCandidates, setMyCandidates] = useState([]);
+
   console.log("check from parent does it got it city or loc", cityOrLocation);
 
   const handleChange = (key, value) => {
@@ -84,14 +88,27 @@ const SearchCandidates = () => {
     }
   };
 
-  //
+  // get my saved candidates ids
+  useEffect(() => {
+    axios
+      .get(
+        `https://jobsown-server.vercel.app/api/mysaved-candidates/${user?.email}`
+      )
+      .then((res) => {
+        const candiare = res?.data?.map((can) => can?.candidateId);
+        console.log("My saved candidates ids are", candiare);
+      })
+      .catch((err) => {
+        console.log(err?.message);
+      });
+  }, [user?.email]);
 
   // get candidates
 
   useEffect(() => {
     setIsLaoding(true);
     axios
-      .get("http://localhost:5000/api/candidates", {
+      .get("https://jobsown-server.vercel.app/api/candidates", {
         params: {
           keyword: searchKeyword,
           currentCity: cityOrLocation,

@@ -15,7 +15,7 @@ const CandidatesDetails = () => {
   console.log("The params id is", id);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/candidate-details/${id}`)
+      .get(`https://jobsown-server.vercel.app/api/candidate-details/${id}`)
       .then((res) => {
         console.log("candidates details is", res.data);
         setUserDetails(res.data);

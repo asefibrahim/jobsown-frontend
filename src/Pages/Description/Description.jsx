@@ -2,27 +2,26 @@ import React, { useContext, useEffect, useState } from "react";
 import descriptionImg from "../../assets/description.png";
 import des from "../../assets/testImage.jpg";
 
-import demoVideo from "../../assets/video.mp4";
 import { CiBookmark } from "react-icons/ci";
-import NexicornLogo from "../../assets/NexicornLogo.png";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { MdOutlineLibraryBooks } from "react-icons/md";
-import KeyFeatures from "./KeyFeatures/index.jsx";
-import Pros from "./Pros/index.jsx";
-import JobReq from "./JobRequirements/index.jsx";
-import JobDetails from "./JobDetails/index.jsx";
-import AboutCompany from "./AboutCompany/index.jsx";
-import MoreJobs from "./MoreJobs/index.jsx";
-import "./index.css";
-import Header from "../FinalHomeScreen/Header.jsx";
-import { AuthContext } from "../../Provider/AuthProvider.jsx";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import Swal from "sweetalert2";
-import axios from "../../api/axios.js";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { FaAngleLeft } from "react-icons/fa";
-import { FaAngleRight } from "react-icons/fa";
+import "slick-carousel/slick/slick.css";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider.jsx";
+import axios from "../../api/axios.js";
+import NexicornLogo from "../../assets/NexicornLogo.png";
+import demoVideo from "../../assets/video.mp4";
+import Header from "../FinalHomeScreen/Header.jsx";
+import AboutCompany from "./AboutCompany/index.jsx";
+import JobDetails from "./JobDetails/index.jsx";
+import JobReq from "./JobRequirements/index.jsx";
+import KeyFeatures from "./KeyFeatures/index.jsx";
+import MoreJobs from "./MoreJobs/index.jsx";
+import Pros from "./Pros/index.jsx";
+import "./index.css";
 
 function PrevArrow(props) {
   const { className, style, onClick } = props;
@@ -68,14 +67,14 @@ const Description = () => {
   console.log(user);
 
   useEffect(() => {
-    axios(`http://localhost:5000/api/candidate-info/${user?.email}`)
-    .then(res => {
-      setCandidatesDetails(res?.data);
-    })
-    .catch(err => {
-      console.log(err?.message);
-    })
-  }, [])
+    axios(`https://jobsown-server.vercel.app/api/candidate-info/${user?.email}`)
+      .then((res) => {
+        setCandidatesDetails(res?.data);
+      })
+      .catch((err) => {
+        console.log(err?.message);
+      });
+  }, []);
 
   console.log("candidate info is", candidateDetails);
 
