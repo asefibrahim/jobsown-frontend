@@ -18,19 +18,23 @@ const SavedCandidates = () => {
     })
     .catch(err => {
       console.error("Error getting candidates:", err?.message);
+      setIsLaoding(false);
     });
   }, [user?.email, myCandidates]);
 
   // get my saved candidates ids
   useEffect(() => {
+    setIsLaoding(true);
     axios
       .get(`http://localhost:5000/api/mysaved-candidates/${user?.email}`)
       .then((res) => {
         const candidatesArry = res?.data?.map((can) => can?.candidateId);
         setMyCandidates(candidatesArry);
+        setIsLaoding(false);
       })
       .catch((err) => {
         console.log(err?.message);
+        setIsLaoding(false);
       });
   }, [user?.email]);
 

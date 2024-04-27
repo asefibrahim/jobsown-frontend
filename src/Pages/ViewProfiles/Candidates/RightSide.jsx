@@ -89,13 +89,13 @@ const RightSide = () => {
     setExperiences([...experiences, newExperience]); // Add the new experience to the experiences array
     handleCloseModal();
   };
-
+  const defaultAvater = "https://i.ibb.co/Rb6NvrY/avater.png";
   // handle submit info button
   const handleSubmitInformation = () => {
     const newCandidate = {
       name: user?.displayName || userInfo?.name,
       email: user?.email || userInfo?.email,
-      image: user?.photoURL || userInfo?.image,
+      image: defaultAvater,
       experience_years: parseInt(experienceYear) || userInfo?.experience_years,
       location: location || userInfo?.location,
       current_salary: parseInt(currentSalary) || userInfo?.current_salary,
