@@ -13,7 +13,7 @@ const AppliedCandidates = () => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(`https://jobsown-server.vercel.app/api/applied-candidates/${id}`)
+      .get(`http://localhost:5000/api/applied-candidates/${id}`)
       .then((res) => {
         setCandidates(res?.data);
         setIsLoading(false);
@@ -24,7 +24,7 @@ const AppliedCandidates = () => {
   }, []);
   useEffect(() => {
     axios
-      .get(`https://jobsown-server.vercel.app/api/user-data/${candidateEmail}`)
+      .get(`http://localhost:5000/api/user-data/${candidateEmail}`)
       .then((res) => {
         setCandidateData(res?.data);
       })
@@ -34,9 +34,7 @@ const AppliedCandidates = () => {
   }, [candidateEmail]);
   useEffect(() => {
     axios
-      .get(
-        `https://jobsown-server.vercel.app/api/candidate-info/${candidateEmail}`
-      )
+      .get(`http://localhost:5000/api/candidate-info/${candidateEmail}`)
       .then((res) => {
         setCandidateInfo(res?.data);
       })

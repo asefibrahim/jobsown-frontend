@@ -67,7 +67,7 @@ const Description = () => {
   console.log(user);
 
   useEffect(() => {
-    axios(`https://jobsown-server.vercel.app/api/candidate-info/${user?.email}`)
+    axios(`http://localhost:5000/api/candidate-info/${user?.email}`)
       .then((res) => {
         setCandidatesDetails(res?.data);
       })

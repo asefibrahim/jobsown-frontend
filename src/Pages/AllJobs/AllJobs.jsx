@@ -17,7 +17,7 @@ const AllJobs = () => {
       setError("");
       try {
         const response = await axios.get(
-          `https://jobsown-server.vercel.app/api/savedJobsFromEmployee?email=${user?.email}`
+          `http://localhost:5000/api/savedJobsFromEmployee?email=${user?.email}`
         );
         setJobs(response.data);
         console.log("Lets match", response.data);

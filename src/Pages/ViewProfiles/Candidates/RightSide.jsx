@@ -39,9 +39,7 @@ const RightSide = () => {
   const [storeLanguages, setStoreLanguages] = useState(null);
   useEffect(() => {
     axios
-      .get(
-        `https://jobsown-server.vercel.app/api/candidate-info/${user?.email}`
-      )
+      .get(`http://localhost:5000/api/candidate-info/${user?.email}`)
       .then((res) => {
         setExperiences(res.data?.experience || []);
         setSkills(res.data?.skills || []);
@@ -114,7 +112,7 @@ const RightSide = () => {
     };
     console.log("New Candidates is", newCandidate);
     axios
-      .post("https://jobsown-server.vercel.app/api/addcandidate", newCandidate)
+      .post("http://localhost:5000/api/addcandidate", newCandidate)
       .then((res) => {
         console.log("Save candidates info result is", res.data);
         if (res.data.acknowledged) {

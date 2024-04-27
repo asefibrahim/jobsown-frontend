@@ -8,8 +8,9 @@ import {
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import "./SearchCandidates.css";
-const CandidateCard = ({ candidate, border, background, width, viewNum }) => {
+const CandidateCard = ({ candidate, border, background, width, viewNum, savedCandidates, setMyCandidates }) => {
   const { user } = useContext(AuthContext);
+  console.log("My saved candidates ids looks liking are ting", savedCandidates);
   const {
     _id,
     name,
@@ -22,13 +23,20 @@ const CandidateCard = ({ candidate, border, background, width, viewNum }) => {
   } = candidate;
   const [selectedOption1, setSelectedOption1] = useState(null);
   const handleSaveCandidate = (value) => {
+
     axios
-      .post(`https://jobsown-server.vercel.app/api/save-candidate`, {
+      .post(`http://localhost:5000/api/save-candidate`, {
+        ...candidate,
         savedEmail: user?.email,
         candidateId: value,
       })
       .then((res) => {
         console.log("saved candidate result is", res?.data);
+        if(savedCandidates.includes(value)){
+          setMyCandidates(prevCandidates => prevCandidates.filter(candidate => candidate !== value));
+        } else {
+          setMyCandidates(prevCandidates => [...prevCandidates, value]);
+        }
       })
       .catch((err) => {
         console.log(err?.message);
@@ -44,8 +52,8 @@ const CandidateCard = ({ candidate, border, background, width, viewNum }) => {
           <input
             type="radio"
             value="option1"
-            checked={false}
-            onChange={() => handleSaveCandidate(_id)}
+            checked={savedCandidates?.includes(_id) ? true : false}
+            onClick={() => handleSaveCandidate(_id)}
             className="form-radio text-blue-500 w-4 h-4"
           />
           <div className="ml-6">

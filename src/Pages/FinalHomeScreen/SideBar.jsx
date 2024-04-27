@@ -36,13 +36,17 @@ const Sidebar = ({menuSmall, setMenuSmall}) => {
              </li>
                   )}
             </NavLink>
-        <li className="mb-2 h-12 flex items-center hover:bg-blue-200 hover:border-blue-600 hover:border-l-4 hover:pl-2 transition duration-300">
-          <img src={saved} alt="Image" className={`mr-3 w-6 h-6 ${menuSmall && 'ml-4'}`} />
-          {
-            !menuSmall && <span className="ml-1">Saved Applicants</span>
-          }
-          
-        </li>
+            <NavLink to={"/employee-dashboard/saved-candidates"}>
+            {({ isActive }) => (
+               <li className={isActive ? `mb-2 h-12 flex items-center bg-blue-200 border-blue-600 border-l-4 ${menuSmall ? '-pl-2' : 'pl-2'} transition duration-300` : "mb-2 h-12 flex items-center hover:bg-blue-200 hover:border-blue-600 hover:border-l-4 hover:pl-2 transition duration-300"}>
+               <img src={saved} alt="Image" className={`mr-3 w-6 h-6 ${menuSmall && 'ml-4'}`} />
+               {
+                 !menuSmall && <span className="ml-1">Saved Applicants</span>
+               }
+               
+             </li>
+                  )}
+            </NavLink>
         <NavLink to={"/employee-dashboard/alljobs"}>
             {({ isActive }) => (
                <li className={isActive ? `mb-2 h-12 flex items-center bg-blue-200 border-blue-600 border-l-4 ${menuSmall ? '-pl-2' : 'pl-2'} transition duration-300` : "mb-2 h-12 flex items-center hover:bg-blue-200 hover:border-blue-600 hover:border-l-4 hover:pl-2 transition duration-300"}>

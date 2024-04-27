@@ -91,12 +91,10 @@ const SearchCandidates = () => {
   // get my saved candidates ids
   useEffect(() => {
     axios
-      .get(
-        `https://jobsown-server.vercel.app/api/mysaved-candidates/${user?.email}`
-      )
+      .get(`http://localhost:5000/api/mysaved-candidates/${user?.email}`)
       .then((res) => {
-        const candiare = res?.data?.map((can) => can?.candidateId);
-        console.log("My saved candidates ids are", candiare);
+        const candidatesArry = res?.data?.map((can) => can?.candidateId);
+        setMyCandidates(candidatesArry);
       })
       .catch((err) => {
         console.log(err?.message);
@@ -108,7 +106,7 @@ const SearchCandidates = () => {
   useEffect(() => {
     setIsLaoding(true);
     axios
-      .get("https://jobsown-server.vercel.app/api/candidates", {
+      .get("http://localhost:5000/api/candidates", {
         params: {
           keyword: searchKeyword,
           currentCity: cityOrLocation,
@@ -334,6 +332,8 @@ const SearchCandidates = () => {
             candidates?.map((candidate) => (
               <CandidateCard
                 candidate={candidate}
+                savedCandidates={myCandidates}
+                setMyCandidates={setMyCandidates}
                 width={"100%"}
                 border={"1px solid black"}
                 viewNum={"block"}
