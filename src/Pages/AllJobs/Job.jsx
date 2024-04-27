@@ -1,6 +1,7 @@
 import React from "react";
-import axios from "../../api/axios";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import axios from "../../api/axios";
 
 const Job = ({ job, setJobs, jobs }) => {
   console.log(job._id);
@@ -55,9 +56,11 @@ const Job = ({ job, setJobs, jobs }) => {
         </div>
 
         <div className="flex flex-col items-center justify-center">
-          <button className="border border-blue-800 rounded px-4 py-2">
-            View Applied Candidates
-          </button>
+          <Link to={`/employee-dashboard/applied-candidates/${job?._id}`}>
+            <button className="border border-blue-800 rounded px-4 py-2">
+              View Applied Candidates
+            </button>
+          </Link>
         </div>
 
         <div className="flex flex-col items-center justify-center">

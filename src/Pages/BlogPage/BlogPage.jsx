@@ -10,7 +10,7 @@ const BlogPage = () => {
   const [blogsData, setBlogsData] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get("https://jobsown-server.vercel.app/api/blogs");
+      const response = await axios.get("http://localhost:5000/api/blogs");
       setBlogsData(response.data);
       console.log(response.data);
     } catch (error) {
@@ -42,14 +42,12 @@ const BlogPage = () => {
           </h1>
           <div className="flex items-center gap-4">
             <img
-                  src={avater}
-                  alt={'author profile'}
-                  className="rounded-full w-8 h-8 mr-1"
-                />
+              src={avater}
+              alt={"author profile"}
+              className="rounded-full w-8 h-8 mr-1"
+            />
             <span className="text-white font-semibold">Tracey Wilson</span>
-            <span className="text-white">
-              {'August 20, 2022'}
-            </span>
+            <span className="text-white">{"August 20, 2022"}</span>
           </div>
         </div>
       </div>

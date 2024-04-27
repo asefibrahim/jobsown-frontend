@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import descriptionImg from "../../assets/description.png";
 import des from "../../assets/testImage.jpg";
 
@@ -64,7 +64,20 @@ const Description = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
+  const [candidateDetails, setCandidatesDetails] = useState({});
   console.log(user);
+
+  useEffect(() => {
+    axios(`http://localhost:5000/api/candidate-info/${user?.email}`)
+    .then(res => {
+      setCandidatesDetails(res?.data);
+    })
+    .catch(err => {
+      console.log(err?.message);
+    })
+  }, [])
+
+  console.log("candidate info is", candidateDetails);
 
   const handleApplyClick = async (id) => {
     Swal.fire({
@@ -81,7 +94,7 @@ const Description = () => {
         const candidateData = {
           email: user?.email,
           name: user?.displayName,
-
+          title: candidateDetails?.preferred_job_title,
           jobId: id,
         };
 

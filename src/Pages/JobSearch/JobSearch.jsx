@@ -80,6 +80,8 @@ const JobSearch = () => {
     genderTypeQuery,
   ]);
 
+  console.log('I got data found',data);
+
   return (
     <div>
       <Header />

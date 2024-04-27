@@ -9,16 +9,16 @@ const BlogDetail = () => {
   const [blogInfo, setBlogInfo] = useState({});
 
   useEffect(() => {
-    axios.get(`https://jobsown-server.vercel.app/api/blogs/${id}`)
-    .then(res => {
-      console.log(res.data);
-      setBlogInfo(res.data);
-    })
-    .catch(err => {
-      console.log(err);
-    })
-      
-  },[]);
+    axios
+      .get(`http://localhost:5000/api/blogs/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        setBlogInfo(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   // const blog = blogInfo.find((blog) => blog.id === blogId);
 

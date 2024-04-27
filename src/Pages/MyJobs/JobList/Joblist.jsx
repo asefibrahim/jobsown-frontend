@@ -66,7 +66,7 @@ const JobList = ({ filteredJobs }) => {
             <div class="w-2/3 flex flex-1 flex-col justify-between p-1">
               <div class="flex w-full justify-between p-1 lg:p-2">
                 <div class="text-xl font-semibold w-1/2 lg:w-4/5 p-1">
-                  {job.JobTitle}
+                  {job.JobTitle || job?.step1?.jobRole}
                 </div>
                 <div
                   className={`${
@@ -92,7 +92,7 @@ const JobList = ({ filteredJobs }) => {
                 <div class="p-0.5 pr-2">
                   <img src={salaryIcon} alt="/" />
                 </div>
-                <div class="p-0.5 font-semibold">{job.SalaryRange}</div>
+                <div class="p-0.5 font-semibold">{job.SalaryRange || job?.step3?.salary}</div>
               </div>
               <div class="flex w-full justify-between p-1 lg:p-2">
                 <div class="flex flex-col w-full lg:w-4/5 justify-between">
@@ -101,7 +101,7 @@ const JobList = ({ filteredJobs }) => {
                       <div class="p-0.5 pr-2">
                         <img src={jobTypeIcon} alt="/" />
                       </div>
-                      <div class="p-0.5">{job.JobType}</div>
+                      <div class="p-0.5">{job.JobType || job?.step1?.jobType}</div>
                     </div>
                     <div class="flex w-1/2 justify-start">
                       <div class="p-0.5 pr-2">
@@ -115,7 +115,7 @@ const JobList = ({ filteredJobs }) => {
                       <div class="p-0.5 pr-2">
                         <img src={locationIcon} alt="/" />
                       </div>
-                      <div class="p-0.5">{job.Location}</div>
+                      <div class="p-0.5">{job.Location || job?.step3?.jobLocation}</div>
                     </div>
                     <div class="flex w-1/2 justify-start">
                       <div class="p-0.5 pr-2">

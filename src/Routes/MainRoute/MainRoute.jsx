@@ -26,6 +26,7 @@ import ProfileMenu from "../../Pages/ViewProfiles/Employee/ProfileMenu/ProfileMe
 import SearchCandidatesForm from "../../Pages/SearchCandidates/SearchCandidatesForm.jsx";
 import EmployeeDashboard from "../../Layouts/DashboardLayouts/EmployeeDashboard/EmployeeDashboard.jsx";
 import CandidatesDetails from "../../Pages/SearchCandidates/CandidatesDetails.jsx";
+import AppliedCandidates from "../../Pages/MyJobs/AppliedCandidates/AppliedCandidates.jsx";
 
 
 
@@ -143,6 +144,10 @@ const router = createBrowserRouter([
         path: "search-candidate",
         element: <SearchCandidates />,
       },
+      {
+        path: "applied-candidates/:id",
+        element: <AppliedCandidates></AppliedCandidates>,
+      }
     ],
   },
 ]);

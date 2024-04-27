@@ -49,7 +49,7 @@ const SearchCandidates = () => {
   const [searchMinExperience, setSearchMinExperience] = useState(minExperience);
   const [searchMaxExperience, setSearchMaxExperience] = useState(maxExperience);
 
-  // sort by industries 
+  // sort by industries
   const [searchIndustries, setSearchIndustries] = useState("");
 
   // sort by annual salary
@@ -84,40 +84,54 @@ const SearchCandidates = () => {
     }
   };
 
-  // 
-
+  //
 
   // get candidates
 
   useEffect(() => {
     setIsLaoding(true);
-    axios.get("https://jobsown-server.vercel.app/api/candidates", {
-      params: {
-        keyword: searchKeyword,
-        currentCity: cityOrLocation,
-        minExperience: searchMinExperience,
-        maxExperience: searchMaxExperience,
-        minSalary: searchMinSarlary,
-        maxSalary: searchMaxSarlary,
-        education: searchEducation,
-        cvLink: haveCv,
-        searchIndustries: searchIndustries,
-        gender: gender,
-        minAge: minAge,
-        maxAge: maxAge,
-        language: searchLanguage,
-    }
-    })
-    .then(res => {
-      console.log(res.data);
-      setCandidates(res.data);
-      setIsLaoding(false)
-    })
-    .catch(err => {
-      console.log(err);
-      setIsLaoding(false)
-    })
-  }, [haveCv, cityOrLocation, searchKeyword, searchMinExperience, searchMaxExperience, searchIndustries, searchMinSarlary, searchMaxSarlary, searchEducation, gender, minAge, maxAge, searchLanguage ])
+    axios
+      .get("http://localhost:5000/api/candidates", {
+        params: {
+          keyword: searchKeyword,
+          currentCity: cityOrLocation,
+          minExperience: searchMinExperience,
+          maxExperience: searchMaxExperience,
+          minSalary: searchMinSarlary,
+          maxSalary: searchMaxSarlary,
+          education: searchEducation,
+          cvLink: haveCv,
+          searchIndustries: searchIndustries,
+          gender: gender,
+          minAge: minAge,
+          maxAge: maxAge,
+          language: searchLanguage,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setCandidates(res.data);
+        setIsLaoding(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLaoding(false);
+      });
+  }, [
+    haveCv,
+    cityOrLocation,
+    searchKeyword,
+    searchMinExperience,
+    searchMaxExperience,
+    searchIndustries,
+    searchMinSarlary,
+    searchMaxSarlary,
+    searchEducation,
+    gender,
+    minAge,
+    maxAge,
+    searchLanguage,
+  ]);
 
   // // clear search and sorting results
   // const handleSearchClear = () => {
@@ -131,7 +145,7 @@ const SearchCandidates = () => {
   return (
     <div>
       <div className="grid grid-cols-12 max-w-7xl mx-auto mt-8">
-        <div className="col-span-3 p-4" >
+        <div className="col-span-3 p-4">
           <div className="text-2xl font-semibold mt-1 mb-2">
             Search Candidates
           </div>
@@ -141,7 +155,9 @@ const SearchCandidates = () => {
               <div className="text-2xl font-semibold text-blue-800">
                 Filters
               </div>
-              <div className="text-base font-medium cursor-pointer hover:text-[#000099]">Clear</div>
+              <div className="text-base font-medium cursor-pointer hover:text-[#000099]">
+                Clear
+              </div>
             </div>
             <div className="p-4 custom-border-bottom">
               <div className="font-semibold text-blue-800 py-2">
@@ -195,46 +211,49 @@ const SearchCandidates = () => {
               hireText="Show Candidates who"
               setHaveCv={setHaveCv}
             />
-            <CurrentLocation 
-                hireText="Current City/Location"
-                setCityOrLocation={setCityOrLocation}
-             />
-
-            <ExcludeKeywords 
-            hireText="Exclude Keywords"
-            setSearchKeyword={setSearchKeyword}
+            <CurrentLocation
+              hireText="Current City/Location"
+              setCityOrLocation={setCityOrLocation}
             />
-            <Experience 
-              hireText="Experience" 
+
+            <ExcludeKeywords
+              hireText="Exclude Keywords"
+              setSearchKeyword={setSearchKeyword}
+            />
+            <Experience
+              hireText="Experience"
               setSearchMinExperience={setSearchMinExperience}
               setSearchMaxExperience={setSearchMaxExperience}
             />
-            <Industries 
-              hireText="Industries" 
+            <Industries
+              hireText="Industries"
               setSearchIndustries={setSearchIndustries}
               setSearchKeyword={setSearchKeyword}
             />
-            <AnnualSalary 
+            <AnnualSalary
               hireText="Annual Salary"
               setAnnualMinSarlary={setAnnualMinSarlary}
               setAnnualMaxSarlary={setAnnualMaxSarlary}
-             />
-            <Education 
-               optionTexts={["10th Pass", "12th Pass", "Diploma", "ITI", "Graduate", "Post Graduate"]}
-               hireText="Education" 
-               setSearchEducation={setSearchEducation}
             />
-            <Gender 
-               optionTexts={["Male", "Female"]} 
-               hireText="Gender"
-               setGender={setGender}
-             />
-            <Age 
-               hireText="Age"
-               setMinAge={setMinAge}
-               setMaxAge={setMaxAge}
-             />
-            <Language 
+            <Education
+              optionTexts={[
+                "10th Pass",
+                "12th Pass",
+                "Diploma",
+                "ITI",
+                "Graduate",
+                "Post Graduate",
+              ]}
+              hireText="Education"
+              setSearchEducation={setSearchEducation}
+            />
+            <Gender
+              optionTexts={["Male", "Female"]}
+              hireText="Gender"
+              setGender={setGender}
+            />
+            <Age hireText="Age" setMinAge={setMinAge} setMaxAge={setMaxAge} />
+            <Language
               hireText="Languages"
               setSearchLanguage={setSearchLanguage}
             />
@@ -288,23 +307,26 @@ const SearchCandidates = () => {
               </span>
             </button>
           </div>
-          {
-            isLoading && <div className="w-full min-h-80 flex justify-center items-center"><span className="loading loading-spinner loading-lg"></span></div>
-          }
-          {
-            candidates?.length > 0 && !isLoading && candidates?.map(candidate => (
+          {isLoading && (
+            <div className="w-full min-h-80 flex justify-center items-center">
+              <span className="loading loading-spinner loading-lg"></span>
+            </div>
+          )}
+          {candidates?.length > 0 &&
+            !isLoading &&
+            candidates?.map((candidate) => (
               <CandidateCard
-               candidate={candidate}
-               width={"100%"}
-               border={"1px solid black"}
-               viewNum={"block"}
-                />
-            ))
-          }
-          {
-            !isLoading && candidates?.length === 0 && <div className="flex justify-center items-center min-h-72 text-lg font-medium ">Your search result is empty</div>
-          }
-          
+                candidate={candidate}
+                width={"100%"}
+                border={"1px solid black"}
+                viewNum={"block"}
+              />
+            ))}
+          {!isLoading && candidates?.length === 0 && (
+            <div className="flex justify-center items-center min-h-72 text-lg font-medium ">
+              Your search result is empty
+            </div>
+          )}
         </div>
       </div>
     </div>
