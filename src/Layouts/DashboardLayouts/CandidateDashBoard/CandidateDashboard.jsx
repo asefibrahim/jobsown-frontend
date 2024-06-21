@@ -33,10 +33,7 @@ const CandidateDashboard = () => {
             <ul className="menu p-4 w-80 h-full text-lg">
               <div className=" mx-auto pt-8 ">
                 <img
-                  src={`${
-                    user?.photoURL ||
-                    "https://i.ibb.co/28LLzYS/8eab480a-38ce-4a2a-8dd9-3e2e2f4a0230.jpg"
-                  }`}
+                  src={`https://i.ibb.co/28LLzYS/8eab480a-38ce-4a2a-8dd9-3e2e2f4a0230.jpg`}
                   alt="Profile"
                   className="h-12 w-12 rounded-full mr-4"
                 />

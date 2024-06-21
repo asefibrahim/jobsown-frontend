@@ -42,12 +42,14 @@ const LeftSide = () => {
         <div className=" flex items-center justify-center">
           <img
             className="h-16 w-16  rounded-full"
-            src={user?.photoURL}
+            src={
+              "https://i.ibb.co/28LLzYS/8eab480a-38ce-4a2a-8dd9-3e2e2f4a0230.jpg"
+            }
             alt=""
           />
         </div>
-        <div className="flex pt-6 pb-4 text-center justify-between items-center w-1/2 mx-auto">
-          <h2 className="text-xl text-gray-700 tracking-wide font-medium">
+        <div className="flex pt-6 pb-4 text-center justify-center items-center w-1/2 mx-auto">
+          <h2 className="text-xl  text-gray-700 tracking-wide font-medium">
             {user?.displayName}
           </h2>
 
